@@ -1,0 +1,299 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+
+}
+
+body{
+	background-color: white;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 5px 10px;
+}
+.header .logo img{
+    height: 100px;
+    width: auto;
+    margin: 0px 10px 0px 15px;
+}
+.menu{
+    background-color:white;
+    height: 100px;
+    display: grid;
+    justify-content: right;
+}
+ul.botones{
+    margin:5px;
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 65px;
+    height: 65px;
+}
+ul.botones li{
+    display:block;
+    float: left;
+    height: 60px;
+    text-align: center;
+}
+
+ul.botones li a{
+    text-align: center;
+	background-color: #004add;
+	border-radius:30px;
+    color: white;
+    margin: 10px 20px 50px -6px;
+    height: 100px;
+	
+}
+
+ul.botones li a:hover{
+	background-color: var(--colored);
+	border: 1px double var(--cum);
+	color: var(--letra);
+}
+
+.izq{
+    background-color: #004add;
+    height: 100vh;
+    width: 40%;
+    text-align: center;
+}
+.der{
+    background: url(../img/girl.PNG);
+    background-size: cover;
+    background-position: center;
+    width: 60%;
+    height: 100vh;
+
+}
+
+#dividida{
+    display: flex;
+}
+
+.fras1{
+color: white;
+/* font-size: 42.5px; */
+}
+
+h1{
+    color: white;
+    font-size: 42.5px;
+    width: 100%;
+    margin: 155px 5px 0px -5px;
+    line-height: 1;
+    margin-bottom: 50px;
+    height: 0%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h2{
+    color: white;
+    font-size: 42.5px;
+    /* width: 100%; */
+    margin:10px auto; 
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+} 
+
+.p1{
+    color:  white;
+    font-size: 21px;
+    text-align: center;
+    margin: 60px 20px 30px;
+    font-weight:bold;
+}
+
+.p2{
+    color:  white;
+    font-size: 20px;
+    text-align: center;
+    margin:0px 20px 60px;
+    font-weight:bold;
+}
+
+
+a{
+  background-color: white;
+  color: black;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 30px;
+  font-weight: bolder;
+  font-size: 15px;
+  margin: 8px 10px 0px 10px;
+  border: 0px solid;
+  font-size: 12.5px;
+  height: 60px;
+}
+
+.hola{
+    padding: 30px 30px 30px 30px;
+}
+
+.frase{
+    background-color: #F6F5F5;
+    text-align: center;
+}
+.frase .hola{
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:normal;
+    font-size: 40px;
+}
+
+.izqres{
+    background-color: #004add;
+    height: auto;
+    width: 52.5%;
+    text-align: center;
+}
+
+.derres{
+    background: #004add;
+    background-size: cover;
+    background-position: center;
+    width: 47.5%;
+    height: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.p3{
+    color: white;
+    font-size: 32.4px;
+    text-align: center;
+}
+.p4{
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+    margin: 30px;
+}
+.imgxd{
+    text-align: center;
+    border: 3px;
+    width: 650px;
+    height: 250px;
+    border: 10px solid;
+    border-color: white;
+}
+
+.izqapren{
+    height: auto;
+    width: 50%;
+    text-align: left;
+}
+
+.derapren{
+    justify-content: center;
+    height: auto;
+    width: 50%;
+    text-align: center;
+}
+.p5{
+    color: black;
+    font-size: 28px;
+    text-align: center;
+    margin: -10px 0px 0px -0px;
+    font-weight: bolder;
+    font-size: 28px;
+}
+.p6{
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    margin: -10px 0px 20px 20px; 
+}
+.p7{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin: -10px 0px 10px 5px; 
+    font-weight: bolder;
+    font-size: 25px;
+}
+.perfil{
+    text-align: center;
+    background-color: #004add;
+    width: 300px;
+    height: 200px;
+    margin: 0px 20px 0px 220px;
+    border: 1px;
+}
+.imgperf{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+.nombrexd{
+    color: white;
+    margin: 10px 0px 0px 0px;
+}
+.area{
+    color: white;
+}
+.precio{
+    border-color: black;
+    border-width: 2px;
+    border-style:ridge;
+    text-align: center;
+    width: 500px;
+    margin: 0px 20px 0px 150px;
+}
+
+ul.botonesxd{
+    margin:5px;
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 65px;
+    height: 65px;
+}
+ul.botonesxd li{
+    display:block;
+    float: center;
+    height: 60px;
+    text-align: center;
+}
+
+ul.botonesxd li a{
+    text-align: center;
+	background-color: #004add;
+	border-radius:30px;
+    color: white;
+    
+    height: 100px;
+	
+}
+
+ul.botonesxd li a:hover{
+	background-color: var(--colored);
+	border: 1px double var(--cum);
+	color: var(--letra);
+}
+.prec{
+    font-size: 35px;
+}
+
+.hora{
+    font-size: 25px;
+    text-align: center;
+    margin: 0px 20px 0px 50px;
+}
