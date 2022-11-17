@@ -14,7 +14,7 @@
   <nav>
       <ul class="botones">
         <li><a href="Iniciasecion.php">Inicia Sesion</a></li>
-        <li><a href="Registrate">Registrate</a></li>
+        <li><a href="registrate.php">Registrate</a></li>
      </ul>
   </nav>
 </header>
