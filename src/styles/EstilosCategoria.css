@@ -1,0 +1,213 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* header {
+    margin: 0px;
+    height: 80px;
+    width: 100%;
+    background-color: #0040a7;
+    position: relative;
+    justify-content: space-between;
+    padding: 15px 30px;
+} */
+/* INICIO DEL HEADER */
+body{
+    background-image: url("img/EstudioBLUR.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    backdrop-filter: blur(5px);
+}
+
+
+/*INICIO HEADER*/
+header {
+    margin: 0px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    background-color: #212c38;
+    position: relative;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.usr {
+    margin-left: 70%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.img00{
+    margin:-5px;
+    padding:0px;
+    display: flex;
+    height: 60px;
+    width: auto;
+
+}
+
+.seccion1 .Coursethon {
+    margin: -50px 0px 10px 100px;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+header .busq .busqueda {
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 30%;
+    width: 35%;
+    height: 40px;
+    border-style: none;
+    border-radius: 20px;
+}
+
+.boton2{
+    margin-top: 0px;
+    padding: 0px;
+
+    position:absolute;
+    justify-content: space-between;
+    
+    top: 15px;
+    right: 20px;
+    width: 130px;
+    height: 50px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 25px;
+    border: none;
+    font-family: sans-serif;
+
+    font-weight: bolder;
+    
+    
+}
+.boton2:hover {
+    background-color: #d8d8d8;
+}
+
+.boton3{
+    margin-top: 0px;
+    padding: 0px;
+
+    position:absolute;
+    justify-content: space-between;
+    
+    top: 15px;
+    width: 130px;
+    height: 50px;
+    right: 165px;
+
+    background-color: #ffffff;
+    color: black;
+    border-radius: 25px;
+    border: none;
+    font-family: sans-serif;
+
+    font-weight: bolder;
+    
+    
+}
+.boton3:hover {
+    background-color: #d8d8d8;
+}
+
+/*FIN DEL HEADER*/
+
+nav .categorias{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.botonG{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boton {
+    text-align: center;
+    margin: 10px;
+    width: auto;
+    height: 40px;
+    background-color: #212c38;
+    color:ghostwhite;
+    border-radius: 20px;
+    border: none;
+    font-family: sans-serif;
+    padding: 10px 20px;
+}
+.boton:hover {
+    background-color: #19222b;
+}
+
+.curso {
+    display: flex;
+    margin: 40px;
+    height: 400px;
+    background-color: rgb(235, 230, 230);
+    border-radius: 10px;
+    
+
+}
+.curso2{
+    display: flex;
+}
+
+
+.img0{
+    height: 300px;
+    width: auto;
+    margin-top:50px;
+    margin-left: 50px;
+    border-radius: 10px;
+
+
+}
+
+.asid1 {
+    margin-top:50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 300px;
+    width: auto;
+   
+    border-radius: 10px;
+}
+
+.titulo_curso{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+}
+
+.descripcion {
+    margin:10px;
+    text-align: center;
+}
+
+.vermas {
+   
+    width: 30%;
+    height: 40px;
+    background-color: #212c38;
+    color:ghostwhite;
+    border-radius: 20px;
+    border: none;
+    font-family: sans-serif;
+    margin-left: 35%;
+    
+    text-align: center;
+}
+.vermas:hover {
+    background-color: #161d25;
+}
