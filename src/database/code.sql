@@ -7,8 +7,7 @@ create table alumno(
    apellidoP varchar(30) not null,
    apellidoM varchar(30) not null,
    foto varchar(100) not null,
-   N_celular char(10) not null,
-   correo varchar(64) not null
+   N_celular char(10) not null
 );
 
 create table maestro(
@@ -17,20 +16,21 @@ create table maestro(
    apellidoP varchar(30) not null,
    apellidoM varchar(30) not null,
    foto varchar(100) not null,
-   N_celular char(10) not null,
-   correo varchar(64) not null
+   N_celular char(10) not null
 );
 
 
 create table cuenta(
      codigo int primary key auto_increment,
-     usuario varchar(20) not null,
+     correo varchar(64) not null,
      contraseña varchar(20)  not null,
      maestro int,
      alumno int,
      foreign key(maestro) references maestro(codigo),
      foreign key(alumno)  references alumno(matricula) 
 );
+alter table  cuenta
+modify column contraseña varchar(72) not null;
 
 
 insert into alumno(nombre,apellidoP,apellidoM,foto,N_celular,correo) values('manuel','gomez','perez',' ','6641644270','manuelgom3z22052003@gmail.com');

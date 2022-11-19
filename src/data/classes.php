@@ -25,9 +25,9 @@ class alumno extends conexionDB{
     }
     
     //metodo para agregar al un estudiante
-    public function add($matr,$nom,$apellP,$apellM,$foto,$cel,$correo){
+    public function add($nom,$apellP,$apellM,$foto,$cel){
       $con=$this->connect();
-      $sql="insert into alumno(nombre,apellidoP,apellidoM,foto,N_celular,correo) values('$nom','$apellP','$apellM','$foto','$cel','$correo');";
+      $sql="insert into alumno(nombre,apellidoP,apellidoM,foto,N_celular) values('$nom','$apellP','$apellM','$foto','$cel');";
       if($con){
        return $this->insert($sql);
       }else{
@@ -45,7 +45,7 @@ class alumno extends conexionDB{
 class user extends conexionDB{
     
     //metodo para obtener
-    public function get(){
+    public function getAll(){
       $con=$this->connect();
       $sql="select * from cuenta";
 
@@ -56,16 +56,44 @@ class user extends conexionDB{
       }
     }
 
+    //metodo para obtener el usuario
+    public function get($email,$passw){
+        $con=$this->connect();
+        $sql="select  contraseña from cuenta where  correo='$email';";
+        
+        echo $sql;
+        if($con){
+           $dataset=$this->query($sql);
+           $fila = mysqli_fetch_array($dataset);
+           $same = password_verify($passw,$fila['contraseña']);
+           
+
+
+           if($same){
+
+            $sql2="select  * from cuenta where  correo='$email';";
+            $dataset2=$this->query($sql2);;
+            return $dataset2;
+           }else{
+             return false;
+           }
+
+        }else{
+
+          return false;
+        }
+    }
+
     //metodo para agregar
-    public function add($user,$passw,$idA,$idM){
+    public function add($email,$passw,$idA,$idM){
       $con=$this->connect();
 
        if($con){
           if($idA !== null){
-            $sql="insert into cuenta(usuario,contraseña,alumno) values('$user','$passw','$idA');";
+            $sql="insert into cuenta(correo,contraseña,alumno) values('$email','$passw','$idA');";
             return $this->insert($sql);
           }else{
-            $sql="insert into cuenta(usuario,contraseña,maestro) values('$user','$passw','$idM');";
+            $sql="insert into cuenta(correo,contraseña,maestro) values('$email','$passw','$idM');";
             return $this->insert($sql);
           }
        }else{

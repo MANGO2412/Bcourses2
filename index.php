@@ -1,3 +1,13 @@
+<?php
+   include('src/logic/session.php');
+   if($menuStundent){
+     header('location: home.php');
+   }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +23,7 @@
        
   <nav>
       <ul class="botones">
-        <li><a href="Iniciasecion.php">Inicia Sesion</a></li>
+        <li><a href="iniciarsesion.php">Inicia Sesion</a></li>
         <li><a href="registrate.php">Registrate</a></li>
      </ul>
   </nav>
