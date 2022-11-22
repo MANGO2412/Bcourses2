@@ -1,7 +1,8 @@
 <?php
+ require_once("../data/classes.php");
+
  //funcion para registrar alumno
  function registerAlumno($name,$firstN,$lastM,$tel,$email,$passw){
-    require_once("../data/classes.php");
     $myStudent = new alumno();
     $myuser=new user();
 
@@ -18,7 +19,6 @@
 
 //funcion para iniciar sesion
 function login($username,$password){
-   require_once('../data/classes.php');
    $myuser=new user();
    $result=$myuser->get($username,$password);
 
@@ -51,4 +51,74 @@ function logout(){
     header('Location: ../../index.php');
 }
 
+
+
+
+//metodo para obtener  todo los cursos
+function GetAllCourses($category){
+  
+    $mycourses= new curso();
+    if(!is_null($category)){
+     //pendiente crear un procedure store 
+      return "datos pendient";   
+    }else{  
+      $dataset= $mycourses->getAllCursos();
+      
+      if($dataset){
+        //crea el areglo json
+       $json=array();
+
+       //obtien los datos json
+       while ($row=mysqli_fetch_array($dataset)) {
+        $json[] = array(
+           'codigo'=>$row['codigo'],
+           'nombre'=>$row['nombre'],
+           'costo'=>$row['costo'],
+           'imagen'=>$row['imagen'],
+           'hrs'=>$row['no_hrs'],
+           'descripcion'=>$row['descripcion'],
+           'categoria'=>$row['categoria']
+        );
+       }
+       
+       //retorna un valor json
+       return json_encode($json);
+      }else{
+        //retorna un valor comun
+        return "no hay datos";
+      }
+    }
+}
+
+
+
+//metodo para obtener un cursos
+function getOneCourses($id){
+  $mycourses= new curso();
+  $dataset= $mycourses->get($id);
+      
+  if($dataset){
+    //crea el areglo json
+   $json=array();
+
+   //obtien los datos json
+   while ($row=mysqli_fetch_array($dataset)) {
+    $json[] = array(
+       'codigo'=>$row['codigo'],
+       'nombre'=>$row['nombre'],
+       'costo'=>$row['costo'],
+       'imagen'=>$row['imagen'],
+       'hrs'=>$row['no_hrs'],
+       'descripcion'=>$row['descripcion'],
+       'categoria'=>$row['categoria']
+    );
+   }
+   
+   //retorna un valor json
+   return json_encode($json);
+  }else{
+    //retorna un valor comun
+    return "no hay datos";
+  }
+}
 ?>

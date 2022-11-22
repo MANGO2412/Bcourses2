@@ -44,6 +44,12 @@
             <p class="hola">Explora nuestros cursos mas interesantes </p>
             </div>
         </section>
+        <!-- cursos -->
+        <section id="cursos"></section>
 
+        <!-- script -->
+        <script src="src/logic/jquery-3.6.1.min.js"></script>
+        <script src="src/logic/main.js"></script>
+        
 </body>
 </html>

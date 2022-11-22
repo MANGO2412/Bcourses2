@@ -5,7 +5,10 @@
 
        $result= registerAlumno($_POST["name"],$_POST["firstN"],$_POST["lastN"],$_POST["tel"],$_POST["email"],$_POST["passw"]);
        if($result != 0 || $result !== false){
-         echo "si ejecuto el insert";
+              echo '<script>
+                alert("tu registro se realiza exitosamen,inicia sesion para usar nustra plataforma");
+                </script>';
+              header('location: ../../index.php');
        }else{
         echo "sucedio un problema";
         //  echo '<script>
@@ -19,6 +22,10 @@
        
   }else if($_REQUEST['activity']=="logout"){
       logout();
+  }else if($_REQUEST["activity"]== "getcourses"){
+      echo GetAllCourses(null);
+  }else if($_REQUEST["activity"]=="oneGetCourse"){
+    echo getOneCourses($_POST['idC']);
   }
 
 ?>

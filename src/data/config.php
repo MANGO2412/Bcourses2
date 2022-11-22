@@ -38,10 +38,8 @@ class conexionDB{
 
 
     public function insert($sql){
-      echo $sql;
        if(mysqli_query($this->con,$sql)){
          $newid=mysqli_insert_id($this->con);
-         echo $newid;
          return $newid;
        }else{
          $newid=0;

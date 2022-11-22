@@ -1,6 +1,16 @@
 <?php
 include_once("config.php");
 
+/*****
+ clase maestro
+ *****/
+
+
+
+
+/**********
+ clase alumno
+************/
 class alumno extends conexionDB{
    /*
     matricula
@@ -41,7 +51,9 @@ class alumno extends conexionDB{
     }
 }
 
-
+/**********
+ clase  cuenta
+************/
 class user extends conexionDB{
     
     //metodo para obtener
@@ -107,5 +119,54 @@ class user extends conexionDB{
 
 
 }
+
+/**********
+ clase cursos
+************/
+class curso extends conexionDB{
+
+
+  public function getAllCursos(){
+     $con=$this->connect();
+
+     if($con){
+       $sql= 'select * from curso';
+       return $this->query($sql);
+     }else{
+       return false;
+     }
+  }
+
+
+  public function get($id){
+      $con= $this->connect();
+
+      if($con){
+        $sql= "select * from curso where codigo='$id'";
+        return $this->query($sql);
+      }else{
+         return false;
+      }
+  }
+
+  public function set(){
+
+  }
+
+  public function add(){
+
+  }
+}
+
+
+/***
+ clase grupo
+ ****/
+
+
+ /***
+  * clase pago
+  */
+
 
 ?>
