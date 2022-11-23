@@ -16,7 +16,7 @@
     <body>
     <!-- header -->
     <header>
-       
+       <h1> Hello world </h1>
         <section class ="seccion1">
          <img class = "img00" src = "../src/img/logo1.png"> 
          <input class="boton2" type="submit" value="iniciar secion">
