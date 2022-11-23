@@ -1,3 +1,5 @@
+
+/* diesño general */
 *{
     box-sizing: border-box;
     margin: 0;
@@ -7,13 +9,18 @@
 
 }
 
+
+/* diseño del body */
 body{
-	background-color: white;
-    margin: 0;
-    padding: 0;
+	background-color: #ffffff;
+    /* margin: 0;
+    padding: 0; */
 }
+/*---------------------------- */
+
+/* diseño de encabezado del codigo */
 .header{
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,12 +32,18 @@ body{
     width: auto;
     margin: 0px 10px 0px 15px;
 }
-.menu{
+
+
+/* .menu{
     background-color:white;
     height: 100px;
     display: grid;
     justify-content: right;
-}
+} */
+
+
+/* ---------------------------------------------------- */
+/* deseño de los botones de iniciar sesion y registarrse */
 ul.botones{
     margin:5px;
     font-family: cursive;
@@ -47,9 +60,9 @@ ul.botones li{
 
 ul.botones li a{
     text-align: center;
-	background-color: #004add;
+	background-color: #2a3744;
 	border-radius:30px;
-    color: white;
+    color: ghostwhite;
     margin: 10px 20px 50px -6px;
     height: 100px;
 	
@@ -60,9 +73,17 @@ ul.botones li a:hover{
 	border: 1px double var(--cum);
 	color: var(--letra);
 }
+/* --------------------------------------------- */
+
+
+/* diseño del menu */
+#dividida{
+    display: flex;
+}
+
 
 .izq{
-    background-color: #004add;
+    background-color: #2a3744;
     height: 100vh;
     width: 40%;
     text-align: center;
@@ -76,17 +97,14 @@ ul.botones li a:hover{
 
 }
 
-#dividida{
-    display: flex;
-}
 
 .fras1{
-color: white;
+color: ghostwhite;
 /* font-size: 42.5px; */
 }
 
 h1{
-    color: white;
+    color: ghostwhite;
     font-size: 42.5px;
     width: 100%;
     margin: 155px 5px 0px -5px;
@@ -100,7 +118,7 @@ h1{
 }
 
 h2{
-    color: white;
+    color: ghostwhite;
     font-size: 42.5px;
     /* width: 100%; */
     margin:10px auto; 
@@ -111,7 +129,7 @@ h2{
 } 
 
 .p1{
-    color:  white;
+    color:  ghostwhite;
     font-size: 21px;
     text-align: center;
     margin: 60px 20px 30px;
@@ -119,7 +137,7 @@ h2{
 }
 
 .p2{
-    color:  white;
+    color:  ghostwhite;
     font-size: 20px;
     text-align: center;
     margin:0px 20px 60px;
@@ -128,8 +146,8 @@ h2{
 
 
 a{
-  background-color: white;
-  color: black;
+  background-color: ghostwhite;
+  color: #2a3744;
   padding: 15px 20px;
   text-decoration: none;
   text-align: center;
@@ -142,7 +160,13 @@ a{
   height: 60px;
 }
 
-.hola{
+
+#cursos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* .hola{
     padding: 30px 30px 30px 30px;
 }
 
@@ -157,24 +181,7 @@ a{
     font-size: 40px;
 }
 
-.izqres{
-    background-color: #004add;
-    height: auto;
-    width: 52.5%;
-    text-align: center;
-}
 
-.derres{
-    background: #004add;
-    background-size: cover;
-    background-position: center;
-    width: 47.5%;
-    height: auto;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    
-}
 
 .p3{
     color: white;
@@ -296,4 +303,4 @@ ul.botonesxd li a:hover{
     font-size: 25px;
     text-align: center;
     margin: 0px 20px 0px 50px;
-}
+} */
