@@ -73,14 +73,12 @@ class user extends conexionDB{
         $con=$this->connect();
         $sql="select  contraseña from cuenta where  correo='$email';";
         
-        echo $sql;
+        
         if($con){
            $dataset=$this->query($sql);
-           $fila = mysqli_fetch_array($dataset);
+           $fila = $dataset==false?array('contraseña'=>''):mysqli_fetch_array($dataset);
+          
            $same = password_verify($passw,$fila['contraseña']);
-           
-
-
            if($same){
 
             $sql2="select  * from cuenta where  correo='$email';";

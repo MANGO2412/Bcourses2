@@ -6,7 +6,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,14 +29,14 @@
          </ul>
       </nav>
    </header> 
-   <!-- contrenido de la pagina -->
+   <!-- contenido de la pagina -->
    <section id="dividida">
        <div class = izq>
            <h2>Estudia cuando quieras y  donde quieras</h2> 
            <p class="p1">¡ Elige la hora y el momento que quieras, para tomar tus cursos en linea !</p>
            <p class="p2">Somos una empresa que se encarga de poder brindar a las personas un sitio para poder llevar acabo sus cursos de manera online</p>    
        <a href="registrate.php">Registrate</a>
-       <a href="category.php">Ver cursos disponibles</a>
+       <a href="home.php">Ver cursos disponibles</a>
      </div>
      <div class = der></div>
    </section>
@@ -46,11 +45,31 @@
        <p class="hola">Explora nuestros cursos mas interesantes </p>
        </div>
    </section>
-        <!-- cursos -->
-        <section id="cursos"></section>
+    <!-- cursos -->
+    <section id="cursos"></section>
 
-        <!-- script -->
-        <script src="src/logic/jquery-3.6.1.min.js"></script>
-        <script src="src/logic/main.js"></script>
+     <footer class="pie_pagina">
+
+        <ul>
+         <li>¿Quienes somos?</li>
+         <li>Ponte en contacto con nosotros</li>
+         <li>Enseña en Bcourses</li>
+        </ul>
+
+        <ul>
+          <li>Blog</li>
+          <li>Redes sociales:
+           <ul>
+             <li>facebook</li>
+             <li>Instagram</li>
+             <li>You tube</li>
+           </ul>
+          </li>
+        </ul>
+     </footer>
+
+    <!-- script -->
+    <script src="src/logic/jquery-3.6.1.min.js"></script>
+    <script src="src/logic/main.js"></script>
 </body>
 </html>

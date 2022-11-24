@@ -35,10 +35,16 @@ function login($username,$password){
          header('location: ../../index.php');
   
       }else{
-          echo "no hay datos";
+           echo "<script>
+               alert('no existe el usuario, comprueba si  estan correcta el corre y pasword');
+               window.location.href='../../iniciarsesion.php'
+             </script>";
       }
    }else{
-      echo "no hay datos";
+        echo "<script>
+        alert('no existe el usuario, comprueba si  estan correcta el corre y pasword');
+        window.location.href='../../iniciarsesion.php'
+       </script>";
    }
 
      
@@ -74,7 +80,8 @@ function GetAllCourses($category){
            'codigo'=>$row['codigo'],
            'nombre'=>$row['nombre'],
            'costo'=>$row['costo'],
-           'imagen'=>$row['imagen'],
+           'imagen'=>'"img/null"
+           alt="img not found" onerror=this.src="src/img/default.png"',
            'hrs'=>$row['no_hrs'],
            'descripcion'=>$row['descripcion'],
            'categoria'=>$row['categoria']

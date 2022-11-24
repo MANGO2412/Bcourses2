@@ -1,0 +1,177 @@
+
+/* diseño para configurar estilos predeterminados del navegador */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contener{
+    width: 90%;
+    margin: auto;
+}
+/* -------------------------------------------------------------- */
+
+
+/* diseño del menu principal */
+.menu{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    background-color: #2a3744;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+/* ---tamaño del logo */
+.seccion1{
+    padding: 10px;
+}
+.seccion1 img{
+    width: auto;
+    height: 60px;
+}
+
+
+/*--- diseño del buscador */
+.busq{
+  padding-top: 20px;
+  width: 40%;
+}
+
+.busq form input{
+    width: 100%;
+    height: 50px;
+    border-style: none;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+/* -----diseño de los botones login y registrar */
+ul.botones{
+    margin:5px;
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 65px;
+    height: 65px;
+}
+ul.botones li{
+    display:block;
+    float: left;
+    height: 60px;
+    text-align: center;
+}
+
+ul.botones li a{
+    text-align: center;
+	background-color: ghostwhite;
+	border-radius:30px;
+    color:   #2a3744;
+    margin: 10px 20px 50px -6px;
+    height: 100px;
+	
+}
+
+.botones li a{
+    background-color:  #2a3744;
+    color: ghostwhite;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: bolder;
+    font-size: 15px;
+    margin: 8px 10px 0px 10px;
+    border: 0px solid;
+    font-size: 12.5px;
+    height: 60px;
+  }
+
+ul.botones li a:hover{
+	background-color:   #2a3744;
+	border: 1px solid ghostwhite;
+	color:  ghostwhite;
+}
+/* -------------------------- ------------*/
+
+
+/* diseño de los botones de categoria */
+.categorias{
+    border-bottom: 1px solid black;
+}
+.boton{
+    text-align: center;
+    background-color: #212c38;
+    color:ghostwhite;
+    width: auto;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    font-family: sans-serif;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+.boton:hover {
+    background-color: #19222b;
+}
+
+/* -------------------------------- */
+
+
+
+/* diseño de los cursos */
+.view_c{
+    
+}
+.cursos{
+    display: flex;
+    border-radius: 10px;
+    background-color: rgb(235, 230, 230);
+    margin: 10px 0;
+    padding-bottom:  20px;
+    width: auto;
+}
+
+.cursos img{
+        height: 300px;
+        width: auto;
+        margin-top:50px;
+        margin-left: 50px;
+        border-radius: 10px; 
+}
+
+.cursos section{
+    padding: 20px;
+
+}
+
+.titulo_curso{
+    font-size: 30px;
+    text-align: center;
+    color: #19222b;
+    margin: 10px;
+}
+
+.descripcion {
+    margin:3%;
+
+    text-align: center;
+}
+
+
+
+.vermas{
+    width: 30%;
+    height: 40px;
+    background-color: #212c38;
+    color:ghostwhite;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    margin: 35%;
+    font-family: sans-serif;   
+    text-align: center;
+}
+
+/* -------------------------------------------------- */

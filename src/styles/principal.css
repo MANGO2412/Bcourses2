@@ -166,6 +166,36 @@ a{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+
+#cursos article{
+    margin: 2%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.cursos_style li{
+    margin: 3px;
+    list-style: none;
+}
+
+
+/* diseño del footer */
+.pie_pagina{
+   padding: 10px;
+   height: 50vh;
+   display: flex;
+   border: 1px solid black;
+}
+
+.pie_pagina ul{
+    padding: 20px;
+}
+
+.pie_pagina ul li{
+    list-style: none;
+     margin-top: 10px;
+}
+
 /* .hola{
     padding: 30px 30px 30px 30px;
 }

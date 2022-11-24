@@ -8,8 +8,9 @@ function showCourses(elementid,data){
         let curso=dataArra[i];
        element.innerHTML +=`
                           <article>
-                             <ul>
+                             <ul class="cursos_style">
                                <li>${curso.nombre}</li>
+                               <li><img src=${curso.imagen}></li>
                                <li><p>${curso.costo}</p><li>
                                <li><a href="src/views/curso.php?id_curso=${curso.codigo}">ver</a></li>  
                              </ul>

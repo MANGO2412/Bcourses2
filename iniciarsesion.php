@@ -20,20 +20,6 @@
    <header>
       <!-- logo de la imagen -->
       <img class="img00" src="src/img/imgPage/logo1.png" alt="logo de la pagina">
-      <!-- el buscador de la pagina -->
-      <section>
-        <form action="">
-            <input class="bus" type="text"  placeholder="busca un curso">
-            <input type="button" value="buscar">
-        </form>
-      </section>
-      <!-- menu de la pagina -->
-      <nav>
-         <ul class="seccion_boton1">
-            <li class="b2"><a class="center" href="">registrate</a></li>
-            <li class="b1"><a href="">inicia sesion</a></li>
-         </ul>
-      </nav>  
      </header>
 
     <form class="form_sesion" action="src/logic/server.php?activity=login" method="post">
