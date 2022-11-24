@@ -12,6 +12,110 @@
 }
 /* -------------------------------------------------------------- */
 
+/* diseño del menu de usuario*/
+.menuUser{
+    display: flex;
+    background-color: #2a3744;
+    margin-bottom: 10px;
+}
+
+
+.busq2{
+   margin-left: 2%;
+   padding-top: 30px;
+   width: 50%;
+}
+
+
+.busq2 form input{
+    width: 100%;
+
+}
+
+.menuUser .nav{
+    position: fixed;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 1;
+    background-color: #2a3744;
+    border-right: 1px solid ghostwhite;
+}
+
+.menuUser .nav ul li{
+    list-style: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menuUser .nav ul li img{
+    border-radius: 50%;
+    width: 150px;
+    object-fit: contain;
+}
+
+.menuUser .nav ul li a{
+   list-style: none;
+   color: ghostwhite;
+}
+
+
+.menu-toggle{
+    padding: 1.5em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 2;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+    width: 2.5em;
+    height: 2px;
+    background-color: ghostwhite;
+}
+
+
+
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.hamburger::before {
+    top: 8px;
+  }
+  
+.hamburger::after {
+    bottom: 8px;
+}
+
+
+
+.menuUser .nav {
+    transform: translateX(-100%);
+}
+  
+.menuUser .nav.open{
+    transform: translateX(0);
+}
+
+.menuUser .nav{
+    transition: transform 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+   
+
+
 
 /* diseño del menu principal */
 .menu{
