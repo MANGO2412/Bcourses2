@@ -18,8 +18,7 @@
        }
 
   }else if($_REQUEST["activity"]=="login"){
-       login($_POST['email'],$_POST['passw']);
-       
+     login($_POST['email'],$_POST['passw'],$_POST['tipUser']);
   }else if($_REQUEST['activity']=="logout"){
       logout();
   }else if($_REQUEST["activity"]== "getcourses"){

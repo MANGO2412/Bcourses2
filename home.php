@@ -14,7 +14,13 @@
        ?>
       <!-- fin header -->
       <div class="contener">
-         <?php include('src/views/vistaAlumno.php')?>
+         <?php 
+         if($menuMaestro){
+          include('src/views/vistaMaestro.php');
+         }else{
+          include('src/views/vistaAlumno.php');
+         }
+         ?>
       </div>
       
       

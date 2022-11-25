@@ -184,14 +184,9 @@ font-weight: bold;
     margin-bottom: 12px;
 }
 
-.form_sesion label{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-}
-.form_sesion label select{
-    margin-top: 3px;
-    
+
+.form_sesion  select{
+    margin-bottom: 12px;   
 }
 
 .form_sesion input{

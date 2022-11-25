@@ -5,6 +5,9 @@ insert into alumno(nombre,apellidoP,apellidoM,foto,N_celular,correo) values('man
 insert into cuenta(usuario,contraseña,alumno) values('mango','lalalslsl',1);
 
 
+
+insert into maestro(nombre,apellidoP,apellidoM,foto,N_celular) values('Angel','Lopez','Breton',' ','6641644270');
+insert into cuenta(correo,contraseña,maestro) values('angel@gmail.com','limon123%',1);
 --inserts de las categorias
 insert into categoria values
 ('A1','Programacion','son cursos relacionados a los temas mas interesantes del mundo de progamacion'),

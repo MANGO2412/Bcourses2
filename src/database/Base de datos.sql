@@ -44,6 +44,9 @@ create table curso(
     categoria(codigo) on delete cascade on update cascade
 );
 
+alter table  curso
+modify column costo decimal(10,2) not null;
+
 
 
 --tabla de temas
@@ -70,6 +73,8 @@ create table cuenta(
     constraint fk_cuenta2 foreign key(alumno) references 
     alumno(matricula)on delete cascade on update cascade
 );
+alter table  cuenta
+modify column contraseña varchar(72) not null;
 
 
 
@@ -280,7 +285,10 @@ insert into cuenta(correo,contraseña,fecha_creacion,maestro,alumno) values
 ('M5Cristian@hotmail.con','L9Pizano','2020-1-25',3,null),
 ('L8Luis@outlook.com','M5Dominguez','2020-5-9',4,null),
 ('D7Carlos@hotmail.con','L8Guzman','2020-2-19',5,null),
-('D4Hugo@hotmail.con','D7Muñoz','2020-3-1',null,1),
+('D4Hugo@hotmail.con','D7Muñoz','2020-3-1',null,1);
+
+
+insert into cuenta(correo,contraseña,fecha_creacion,maestro,alumno) values
 ('M4Martin@hotmail.con','A5Blanco','2020-5-28',null	,2),
 ('E6Lucas@outlook.com','P5Gil','2020-2-3',null,3),
 ('D5Mateo@outlook.com','M6Aguirre','2020-2-14',null,4),
@@ -346,12 +354,110 @@ insert into cuenta(correo,contraseña,fecha_creacion,maestro,alumno) values
 ('A7Jlian@gmail.com','R6Tur','2020-6-4',null,64),
 ('M5Luis@gmail.com','N5Sastre','2020-6-9',null,65),
 ('B7Pau@hotmail.con','N5Perello','2020-5-11',null,66),
-('A9Alberto@outlook.com','J7Amengual','2020-3-14',null,67),
+('A9Alberto@outlook.com','J7Amengual','2020-3-14',null,67);
+
 ('F6Pedro@outlook.com','A7Roig','2020-5-22',null,68),
 ('I5Raul@outlook.com','F7Ramis','2020-4-18',null,69),
 ('A7Nil@hotmail.com','A7Ramirez','2020-1-19',null,70),
 ('I4Noah@hotmail.com','M5Cardona','2020-6-21',null,71),
 ('M6Jan@outlook.com','B7Bauza','2020-1-19',null,72);
 
+--inserts de temas
+insert into categoria(nombre,descripcion)values 
+('Programacion','son cursos relacionados a los temas mas interesantes del mundo de progamacion'),
+('IdIomas','Son cursos relacionados al aprendizaje de los idiomas de english y frances'),
+('Diseño Grafico','Son cursos relacionas al aprendizaje de herrmainets, tecnica o conceptos en el mundo del diseño grafico'),
+('Ciencia de datos','Son cursos estudio de datos con el fin de extraer información significativa para empresas. Es un enfoque multidisciplinario que combina principios y prácticas del campo de las matemáticas, la estadística, la inteligencia artificial y la ingeniería de computación'),
+('Negocios','Son cursos relacionados al ambito empresarial');
 
 
+select * from categoria;
+
+
+--insert de cursos
+insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Ingles', 850, 'Course-English.jpg', 200, 'Es un curso de 200 horas lectivas a lo largo del cual se trabajan las cinco destrezas principales de la lengua: la expresión oral, la interacción oral, la comprensión auditiva, la comprensión lectora, la expresión escrita. El curso es muy práctico y se exige la participación activa del alumno.',2);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso online de Adobe Photoshop', 299, 'adobephotoshop.jpg', 12, 'En este curso online aprenderás a usar Photoshop: efectos, filtros y más del programa más conocido de diseño. ḂConoce todas las herramientas hoy!',3);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso De Desarrollador - Python', 799, 'Course-Python.png', 200, 'En este curso de Python aprenderás de forma práctica los conceptos básicos, las mejores técnicas, así como las librerías más populares y herramientas necesarias para programar de forma eficiente con este lenguaje de programación.',1);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso Desarrollo Web - Aprende HTML y CSS', 299, 'Course-HTMLxCSS', 45, 'Aprende HTML y CSS desde cero, sin conocimientos previos. Conoce todo sobre etiquetas HTML, semántica, CSS, como dar estilos a los elementos de tu sitio web, medidas EM/REM, modelo de caja y mucho más. Aprenderás todo lo que necesitas para empezar en el desarrollo web online y a construir sitios para internet de manera eficiente.',1);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso Programación - Java', 249, '', 15, 'En este curso de Java aprenderás a dominar este lenguaje de programación desde cero a experto, lo cual te permitirá crear aplicaciones de escritorio siguiendo las buenas prácticas de programación en Java.',1);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Introducción a las finanzas', 500, 'finanza.jpg', 14, 'Este curso en línea te enseñará conceptos claves y herramientas de valor del dinero en el tiempo que te ayudarán a entender las diferentes tasas de interés y a evaluar, comparar y elegir proyectos de inversión y financiamiento en los mercados financieros.',5);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso online de Manejo fundamental de Adobe Illustrator CC2020', 300, 'illustratorcurso.jpg', 6, 'En este curso de Illustrator online conocerás las posibilidades creativas y de diseño que te ofrece el programa, aprenderás cómo usar Illustrator desde lo más básico hasta los tips y maneras para hacer tu proceso creativo más eficiente El curso de Illustrator te enseñará para qué sirve Illustrator, tips útiles para trabajar de manera eficiente y acercarte a sus herramientas para que conozcas su funcionamiento y puedas ver las posibilidades creativas que este programa ofrece. ',3);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso online de Introducción a Adobe Photoshop CC2020', 450, 'adobephotoshop1.jpg', 8, 'El curso de introducción a Photoshop nos enseñará cómo personalizar los paneles y la caja de herramientas básicas de Photoshop para optimizar tu espacio de trabajo. Aprenderás a usar shortcuts, cómo usar las herramientas de retoque, selección y recorte, así como el manejo de capas y la herramienta más importante y útil de Photoshop, la herramienta pluma. El camino del diseño y el retoque fotográfico es largo pero divertido y este es un gran lugar para iniciar.',3);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Introducción a Matemáticas para Finanzas y Negocios', 500, '', 8, 'El objetivo del curso es entender como ciertos conceptos matemáticos se utilizan de forma recurrente para analizar problemas financieros y de negocios.',5);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Curso online de Diseño de logotipos desde cero', 185, 'diseñoiconoscurso.jpg', 5, 'En éste curso aprenderás el proceso completo de cómo construir un logotipo, desde la definición del significado y valor de la marca, hasta el proceso creativo y práctico para desarrollarlo en Adobe Illustrator. Desarrollarás una identidad gráfica y aplicaciones que expresen la personalidad de la marca.',3);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Herramientas para el Análisis de Big Data', 200, 'cursos11.png', 4, 'Conoce las herramientas para el procesamiento, modelación, análisis, almacenamiento y acceso de los datos. Aprende en este curso online los beneficios del cómputo en la nube para los proyectos de ciencia de datos en las organizaciones y conoce las herramientas más populares.',4);
+Insert into curso (nombre,costo, imagen, No_Hrs, Descripcion, Categoria) values('Ciencia de datos con Python', 200, 'curso12.pgn', 6, 'Comprender los conceptos básicos del lenguaje Python y cómo se aplican a la ciencia de datos',4);
+
+
+select * from curso;
+
+
+
+--insert de los temas
+Insert into Temas (Titulo,Descripcion,Curso) values('La caja de herramientas', 'Aprenderas todo acerca las herramientas que se encuentran en adobe photoshop.',2);
+Insert into Temas (Titulo,Descripcion,Curso) values('Herramientas de retoque', 'Aprenderas todo sobre las herrmaientas de retoque, el como utilizarlas hasta el como usarlas de una maner eficaz',2);
+Insert into Temas (Titulo,Descripcion,Curso) values('Proyecto Final', 'Diseñaras con todo lo aprendido una foto de tu gusto y tendras que editarla con todas las herramientas aprendidas durante el curso.',2);
+Insert into Temas (Titulo,Descripcion,Curso) values('Jugando con formas', 'Empezaras haciendo formas con distintos diseños diferentes y opciones con las que te podras desenvolver mejor.',7);
+Insert into Temas (Titulo,Descripcion,Curso) values('Herramientas de color', 'Aprenderas los distintos tipos de color asi como el como poder crear capaz con estos mismos.',7);
+Insert into Temas (Titulo,Descripcion,Curso) values('Herramientas de Texto', 'Aprenderas a como poder crear texto y el como poder editarlo de una manera sorprendente y mas original y estetica.',7);
+Insert into Temas (Titulo,Descripcion,Curso) values('Trabajando con tasas', 'Tasas efectivas, periódicas y nominales. Tasas vencidas y anticipadas. Conversión y equivalencia de tasas. Función TASA NOMINAL',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Valor del dinero en el tiempo', 'Introducción a conceptos básicos de interés simple, compuesto. Línea de tiempo y diagramas de flujo. Cálculos de valor futuro, valor presente, factor de acumulación y de descuento para uno y varios periodos. Cálculos de tasas de interés y número de periodos. Funciones de Excel VF, VA, NPER y TASA.',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Trabajando con tasas', 'Tasas efectivas, periódicas y nominales. Tasas vencidas y anticipadas. Conversión y equivalencia de tasas. Función TASA NOMINAL',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Valoraciones', 'Cálculos de valor presente y futuro con tasas variables, valoración descontada de flujos de efectivo, ecuaciones de valor equivalente y cálculo de fechas desconocidas. Cálculo de valor futuro y valor presente en series de pagos constantes.',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Abriendo Photoshop por primera vez', 'Conocer el área de trabajo de photoshop, desde la apertura de un archivo hasta la personalización del programa para que se adapte a tus necesidades.',8);
+Insert into Temas (Titulo,Descripcion,Curso) values('Primeras herramientas de retoque', 'Retoque simple: utilizarás el parche, pincel corrector puntual, tampón de clonar y borrador en photoshop, para retocar sutilmente una imagen.',8);
+Insert into Temas (Titulo,Descripcion,Curso) values('Herramienta de trazado', 'Doble exposición en Photoshop: para llegar a una doble exposición aprenderás a usar las herramientas de selección, recorte y trazado. De esta manera podrás tomar las áreas que te interesen de una imagen y evolucionar a una completamente diferente.',8);
+Insert into Temas (Titulo,Descripcion,Curso) values('Métodos y criterios', 'Métodos básicos de evaluación de proyectos: Valor Presente Neto y Tasa interna de retorno (TIR). Cálculo de VPN y TIR usando funciones de Excel. Evaluación y comparación de proyectos y flujos de efectivo usando VPN y TIR.',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Funciones Lineales', 'Modelos lineales. Representación geométrica de una ecuación lineal. Aplicación al cálculo del rendimiento con composición simple. Concepto de pendiente y elasticidad',9);
+Insert into Temas (Titulo,Descripcion,Curso) values('Matrices y Vectores', 'Matrices y Vectores. Operaciones con matrices: suma multiplicación, solución de modelos por inversión de matrices. Aplicaciones a la determinación de equilibrio macroeconómico y multiplicador fiscal',9);
+Insert into Temas (Titulo,Descripcion,Curso) values('Funciones no lineales', 'Polinomios. Características de un polinomio, interpretación geométrica. determinación de raíces. Aplicaciones a la toma de decisiones de proyectos: Valor Presente y Tasa Interna de Retorno.',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Matemáticas Financieras', 'Instrumentos de Mercado de Dinero. Tipos de instrumentos, tasa de rendimiento y tasas de descuento, frecuencia de composición y Day Count. Aplicación al cálculo del precio de un Cete y comparación entre los rendimientos mediante la Tasa Efectiva',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Cálculo Infinitesimal', 'Derivadas: Máximos y Mínimos. Reglas de derivación de una función, determinación condiciones de primer y segundo orden. Aplicación a la determinación del monto óptimo de producción de una empresa.',6);
+Insert into Temas (Titulo,Descripcion,Curso) values('Sitio Freelancer: Creando un proyecto paso a paso: HTML', 'Introduccion a HTML, crear los textos con html y aprender a estructurar el contenido, crear enlaces y navegacion entre paginas, añadir imagenes con html, asi como la creacion de formularios con HTML.',4);
+Insert into Temas (Titulo,Descripcion,Curso) values('Sitio Freelancer: Creando un proyecto paso a paso: CSS', 'Introduccion a CSS, primeros pasos con CSS. Crear un archivo externo para el CSS , crear un archivo externo para el  CSS y dar estilos a nuestros proyectos.',4);
+Insert into Temas (Titulo,Descripcion,Curso) values('Frontend store: Creando un segundo proyecto paso a paso: HTML', 'Aprendiendo a añadir los Globales al CSS, añadir el logotipo de navegacion, introduccion a BEM, creacion de enlaces, parender a añadir los productos, CSS a los productos, y posicionamiento de elementos.',4);
+Insert into Temas (Titulo,Descripcion,Curso) values('Patrones de Diseño Responsive web Design con CSS Grid y Flexbox', 'Aprendiendo dos columnas Iguales, CSS grid, FlexBox, y Tres Columnas iguales- CSS Grid, FlexBox.',4);
+Insert into Temas (Titulo,Descripcion,Curso) values('Blog Cafe- Creando un proyecto  con HTML Y CSS', 'AṀremdoemdp a añadir CSS global, crear el header, CSS al header, crear un blog y finalizar el blog, creando una barra lateral, crear un footer y crear un footer.',4);
+Insert into Temas (Titulo,Descripcion,Curso) values('Los logotipos, en teoría 1', 'Vas a aprender como estan estructurados los logotipos y los tipos de de logotipos que existen asi como su significado.',10);
+Insert into Temas (Titulo,Descripcion,Curso) values('Nuestro logotipo, desde el principio', 'Aprenderas como crear un logotipo y como hacer que ese tenga un significado.',10);
+Insert into Temas (Titulo,Descripcion,Curso) values('Gridding & Refining', 'Una vez que ya sabemos la estructura de los logos podemos empezar el grid y el refining',10);
+Insert into Temas (Titulo,Descripcion,Curso) values('Básicos del Lenguaje', 'Guia de instalacion y conceptos basicos, operadores matematicos, variables y expresiones, y introduccion de funciones.',3);
+Insert into Temas (Titulo,Descripcion,Curso) values('Uso de strings y ciclos', 'operaciones con string en python, operaciones con string y el comando update y delete, operaciones con string: slices en python y for loops.',3);
+Insert into Temas (Titulo,Descripcion,Curso) values('Estructura de datos', 'Uso de listas, operaciones con listas, agregando listas a nuestro proyecto, diccionarios a nuestros proyecto, tuplas y conjuntos.',3);
+Insert into Temas (Titulo,Descripcion,Curso) values('Uso de objetos y modulos', 'Decoradores, introduccion a programacion orientada a objetos, scopes y namespace, introduccion a Click, definicion a API publica, clients. Introduccion a inteface de create.',3);
+Insert into Temas (Titulo,Descripcion,Curso) values('Programacion Fundamental', 'Introduccion a Java, Funciones puras, funciones de orden mayor, y funciones lamba.',5);
+Insert into Temas (Titulo,Descripcion,Curso) values('Functional Programming en Java', 'Configuracion del entorno de trabajo, Revision de paquetes java.util.function: (Function, Predicare, Costumer y Supplier, Operator y BiFunction.',5);
+Insert into Temas (Titulo,Descripcion,Curso) values('Optional y Streams', 'Introduccion a clase Optional y Streams, operadores de collectors, operaciones terminales, operaciones intermedias, y collectors.',5);
+Insert into Temas (Titulo,Descripcion,Curso) values('Gramatica Inglesa:los verbos y tiempos verbales', 'Introducción al Curso de Inglés Básico, Los Sustantivos, su plural y ejemplos en el idioma inglés, Los Artículos básicos en inglés,Adjetivos, concepto y lista de los más comunes en inglés, verbos en inglés, uso del infinitivo y ejemplos comunes, las preposiciones esenciales en la lengua inglesa. Pronombres personales, objetivos y reflexivos en inglés, posesivos: Adjetivos, pronombres e indicar propiedad. Los demostrativos en inglés: Pronombres y adjetivos
+El alfabeto y los colores en el idioma Inglés, los Números en Inglés: Cardinales y Ordinales, días de la semana, Meses y estaciones del año en inglés, uso de Much, Many y a Lot of, Ejemplos, el uso de Little y Few, donde utilizarlos
+Vocabulario.',1);
+Insert into Temas (Titulo,Descripcion,Curso) values('Estructuras Gramaticales y Oraciones', 'Presente Simple: Oraciones afirmativas y negativas
+Preguntas personales en presente simple usando ḋdoṠ y ḋdoesṠ
+Adverbios de frecuencia: always, usually, sometimes & never
+El presente continuo y reglas del verbo en gerundio ḋ-ingṠ
+Pasado simple de ḋbeṠ: Oraciones con Was / Were
+Comparativos en inglés: Reglas de adjetivos y oraciones
+Preguntas de Personalidad / Apariencia ḋBe likeṠ & ḋLook likeṠ',1);
+Insert into Temas (Titulo,Descripcion,Curso) values('Inglés Alto: Enfoque Práctico', 'Expresar acuerdo y desacuerdo con otras personas en inglés
+Uso de adjetivos -ing y -ed para describir emociones y sus causas
+Presente Perfecto, usos y ejemplos en oraciones / preguntas
+Reglas para formar adjetivos superlativos y cómo comparar con ellos
+Ejemplos con las clausulas adverbiales: before, after y when
+Diferencia entre el uso de las palabras should y have to en inglés
+Como usar too / not enough y too many / too much
+Clausulas relativas de sujeto. ',1);
+
+
+Insert into Temas (Titulo,Descripcion,Curso) values('Inglés Avanzado: Enfoque Conversacional', 'El presente perfecto continuo; diferencia entre ḋSinceṠ y ḋForṠ
+Preguntas Indirectas en Inglés ṡCómo se forman y para qué se usan?
+La voz pasiva en inglés, estructuración de oraciones y ejemplos
+Clausulas relativas de sujeto y objeto. Usos comunes.
+Infinitivos y Gerundios para expresar un propósito o intención
+El Pasado Perfecto. Estructura, usos y ejemplos básicos
+Causativos en inglés con las palabras ḋHaveṠ y ḋGetṠ. Ejemplos
+Segundo condicional en inglés (Tipo II).',1);
+
+Insert into Temas (Titulo,Descripcion,Curso) values('conceptos basicos de python para data science', 'Este curso de Python proporciona una introducción para principiantes a Python a la ciencia de datos. Practica a través de ejercicios de laboratorio, Ḃy estarás listo para crear tus primeros scripts de Python por tu cuenta!',12);
+Insert into Temas (Titulo,Descripcion,Curso) values('analizando datos con python', 'En este curso aprenderás cómo analizar datos en Python usando matrices multidimensionales en numpy, a manipular DataFrames en pandas, a usar la biblioteca SciPy de rutinas matemáticas y a realizar aprendizaje automático usando scikit-learn.',12);
+Insert into Temas (Titulo,Descripcion,Curso) values('visuslizando datos con python', 'La visualización de datos es la representación gráfica de los datos para transmitir de manera interactiva y eficiente las ideas a los clientes y partes interesadas en general.',12);
+Insert into Temas (Titulo,Descripcion,Curso) values('Meachine Learning con python', 'El Machine Learning puede ser una herramienta increíblemente beneficiosa para descubrir información y predecir tendencias futuras. Este curso de aprendizaje automático con Python te brindará todas las herramientas que necesitas para comenzar con el aprendizaje supervisado y autónomo.',12);

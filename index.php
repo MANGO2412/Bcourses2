@@ -1,6 +1,6 @@
 <?php
    include('src/logic/session.php');
-   if($menuStundent){
+   if($menuStundent || $menuMaestro){
      header('location: home.php');
    }
 

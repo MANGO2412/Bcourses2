@@ -18,9 +18,9 @@
 
 
 //funcion para iniciar sesion
-function login($username,$password){
+function login($username,$password,$tipUser){
    $myuser=new user();
-   $result=$myuser->get($username,$password);
+   $result=$myuser->get($username,$password,$tipUser);
 
    //compara si hay datos
    if($result != false){
@@ -32,11 +32,18 @@ function login($username,$password){
         session_start();
         $_SESSION['email']=$fila['correo'];
         $_SESSION['id']=$fila['codigo'];
+        
+        //valida el tipo de usuario
+         if($tipUser == "alumno"){
+          $_SESSION['id_alumno']=$fila['alumno'];
+         }else if($tipUser=="maestro"){
+          $_SESSION['id_maestro']=$fila['maestro'];
+         }
          header('location: ../../index.php');
   
       }else{
            echo "<script>
-               alert('no existe el usuario, comprueba si  estan correcta el corre y pasword');
+               alert('no1 existe el usuario, comprueba si  estan correcta el corre y pasword');
                window.location.href='../../iniciarsesion.php'
              </script>";
       }

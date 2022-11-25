@@ -36,6 +36,40 @@
         </nav>
     </header>
 <?php
+}else if($menuMaestro){
+?>
+   <!-- menu de usuario -->
+   <header class="menuUser">
+        <!-- nombre y logo del sitio web -->
+        <section class ="seccion1">
+         <img class = "img00" src = "src/img/logo1.png"> 
+        </section>
+        <!-- buscador -->
+        <section class="busq2"> 
+          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+        </section>
+
+        <!-- el boton para desplegar el menu -->
+         <button class="menu-toggle" aria-label="Menu toggle button">
+            <span class="hamburger"></span>
+         </button>
+         <!-- menu -->
+        <nav class="nav">
+            <ul>
+                <li>
+                    <ul>
+                        <li><img src="src/img/alumnos/estudent.jpeg"></li>
+                        <li>Gomez Perez Manuel</li>
+                    </ul>
+                </li> 
+                <li><a href="home.php?menu=c_asignado">cursos asignados</a></li>
+                <li><a href="home.php?menu=configurar">configurar cuenta</a></li>
+                <li><a href="src/logic/server.php?activity=logout">cerrar sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<?php
 
   }else{
 ?>

@@ -26,15 +26,13 @@
         <h4>Inicio de sesion</h4>
         <!-- correo del usuario -->
        <input class="controls2"  type="text" name="email" placeholder="correo">
-       <!-- tipo de usuario -->
-       <label for="">
-         ¿como quieres iniciar sesion?
-         <select class="controls2" name="tipUser">
-            <option value=""></option>
-            <option value="maestro">Iniciar como maestro</option>
-            <option value="alumno">Iniciar como Alumno</option>
-         </select>
-       </label>
+       <!-- tipo de usuario -->    
+      <select class="controls2" name="tipUser">
+         <option value=null>¿como quieres iniciar sesion?</option>
+         <option value="maestro">Iniciar como maestro</option>
+         <option value="alumno">Iniciar como Alumno</option>
+      </select>
+       
 
        <!-- contraseña del usario -->
        <input class="controls2" type="password" name="passw" placeholder="contraseña">
