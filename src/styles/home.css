@@ -279,3 +279,55 @@ ul.botones li a:hover{
 }
 
 /* -------------------------------------------------- */
+/* ---------------- Este es de lo de los pagos ------------------------- */
+.pagos{
+    background-color: #ededed;
+    text-align: center;
+    justify-content: center;
+}
+th, td {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 50px;
+  }
+  th{
+    background-color: #2e4b61;
+  }
+
+  table {
+    border-spacing: 0px;
+    margin-top: 50px;
+  }
+
+table{
+    text-align: center;
+    margin: auto 10px;
+    caption-side: bottom;
+
+}
+th{
+    color: white;
+}
+
+
+td,th{
+    border: 1px solid black;
+    padding-left:10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.paguito{
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: #444;
+    font-size: 30px;
+    font-style:initial;
+    font-weight: bolder;
+}
+body{
+    background-color: #ededed;
+}
