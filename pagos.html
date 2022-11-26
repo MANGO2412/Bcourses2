@@ -1,0 +1,59 @@
+
+<html>
+    
+    <head>
+        <title>Pagos Realizados</title>
+        <link rel="stylesheet" type="text/css" href="src/styles/home.css"/>
+
+         <!-- menu de usuario -->
+   <header class="menuUser">
+    <!-- nombre y logo del sitio web -->
+    <section class ="seccion1">
+     <img class = "img00" src = "src/img/logo1.png"> 
+    </section>
+    <!-- buscador -->
+    <section class="busq2"> 
+      <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+    </section>
+
+    <!-- el boton para desplegar el menu -->
+     <button class="menu-toggle" aria-label="Menu toggle button">
+        <span class="hamburger"></span>
+     </button>
+     <!-- menu -->
+    <nav class="nav">
+        <ul>
+            <li>
+                <ul>
+                    <li><img src="src/img/alumnos/estudent.jpeg"></li>
+                    <li>Gomez Perez Manuel</li>
+                </ul>
+            </li> 
+            <li><a href="home.php">Inicio</a></li>
+            <li><a href="home.php?menu=mi_pago">pagos</a></li>
+            <li><a href="home.php?menu=mis_cursos">Mis cursos</a></li>
+            <li><a href="home.php?menu=configurar">configurar cuenta</a></li>
+            <li><a href="src/logic/server.php?activity=logout">cerrar sesion</a></li>
+        </ul>
+    </nav>
+</header>
+---------------------- /* esto es parte de lo de pagos normal /* ----------------------
+    <body>
+        <div class="pagos">
+            <p class="paguito">Pagos realizados</p>
+            <table style="margin: 0 auto;">
+                <tr>
+                <th>Nombre del curso </th>
+                <th>Fecha de Pago</th>
+                <th>Monto</th>
+                </tr>
+                <tr>
+                <td>Curso de PHP</td>
+                <td>22/10/22</td>
+                <td>$900</td>
+                </tr>
+</table>
+        </div>
+</body>
+</html>
+  
