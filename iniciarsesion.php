@@ -32,8 +32,7 @@
          <option value="maestro">Iniciar como maestro</option>
          <option value="alumno">Iniciar como Alumno</option>
       </select>
-       
-
+      
        <!-- contraseña del usario -->
        <input class="controls2" type="password" name="passw" placeholder="contraseña">
 

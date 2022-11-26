@@ -127,6 +127,13 @@
     padding-bottom: 10px;
 }
 
+.notMove{
+    position: sticky;
+    top: 0;
+}
+
+
+
 /* ---tamaño del logo */
 .seccion1{
     padding: 10px;
@@ -149,6 +156,21 @@
     border-style: none;
     border-radius: 20px;
     padding-left: 10px;
+}
+
+/*lista de busqueda*/
+#listbusq{
+    background-color: aqua;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 80px;
+    bottom: 0;
+    transform: translateX(-100%);
+}
+
+#listbusq.notMovLIst{
+    transform: translateX(0);
 }
 
 /* -----diseño de los botones login y registrar */

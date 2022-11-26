@@ -10,7 +10,7 @@ class conexionDB{
           $this->host="localhost";
           $this->user="root";
           $this->passw="";
-          $this->db="gestion_cursos";
+          $this->db="CursosOnline";
     }
 
     //metodo que establece conexion a la base de datos
@@ -49,7 +49,7 @@ class conexionDB{
     
     //metodo que actualiza o elimina los datos
     public function updateDelete($sql){
-         if(mysqli_query($sql)>0){
+         if(mysqli_query($this->con,$sql)>0){
            return true;
          }else{
            return false;

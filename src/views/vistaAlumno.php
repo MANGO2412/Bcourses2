@@ -1,4 +1,5 @@
 <?php
+include_once('src/data/classes.php');
 
 if($menu_accion_user=='mis_cursos'){
 ?>
@@ -18,48 +19,62 @@ if($menu_accion_user=='mis_cursos'){
 ?>
   <!--opciones para buscar cursos por categoria  -->
   <section class= "categorias">
-              <button class = "boton">alimentacion</button>
-              <button class = "boton">Robotica</button>
-              <button class = "boton">Arquitrectura</button>
-              <button class = "boton">Arte y cinema</button>
-              <button class = "boton">Ciencia</button>
-              <button class = "boton">Economia</button>
-              <button class = "boton">Computacion</button>
-              <button class = "boton">Analisis de datos</button>
+               <!-- muestra las categorias -->
+               <button id="todos"class ="boton">Todos</button>
+               <?php
+                 $mycategoria= new categoria();
+                 $dataset2=$mycategoria->getAll();
+
+                 if($dataset2){
+                    while ($row=mysqli_fetch_array($dataset2)){ 
+               ?>
+                 <button id="<?=$row['codigo']?>"class ="boton"><?=$row['nombre']?></button>
+              <?php
+                 }
+                }
+              ?>
           </section>
           <!-- fin de este section -->
           <!-- muestra todo los cursos -->
            <section class="view_c">
                <header>cursos disponibles</header>
                <section>
+                 <!-- <input type="text" id="luck"> -->
+                <!-- <button id="luck">jajajaj</button> -->
                 <!-- los cursos se muestran aqui -->
+                <?php
+                  $allcursos = new curso();
+
+                  if(isset($_REQUEST['category'])){
+                    $dataset= $allcursos->getAllCursos($_REQUEST['category']);
+                  }else{
+                     $dataset= $allcursos->getAllCursos(null);
+                  }
+                        if($dataset){
+                             while ($row=mysqli_fetch_array($dataset)) {
+                ?>
                   <article class="cursos">
                      <!-- imagen del cursos -->
-                     <img src="src/img/Estudio.jpg" alt="">
+                    <img src="img/"  alt="img not found" onerror="this.src='src/img/cursos/default.png'">
                      <!-- info del cursos -->
                      <section>
-                         <h2 class="titulo_curso">Analisis estadistico con Excel</h2>
-                         <p class="descripcion">Para que puedas formarte, a tu disposición se ponen una amplia variedad de cursos 
-                     impartidos por Universidades y plataformas de enseñanza online, en los que contarás con todos los materiales y recursos necesarios.</p>
-                         <a class="vermas">ver mas del curso</a>
+                         <h2 class="titulo_curso"><?=$row['nombre']?></h2>
+                         <p class="descripcion"><?=$row['descripcion']?></p>
+                         <a href="src/views/curso.php?id_curso=<?=$row['codigo']?>" class="vermas">ver mas del curso</a>
                      </section>
                   </article>
-
-
-                  <article class="cursos">
-                     <!-- imagen del cursos -->
-                     <img src="src/img/Estudio.jpg" alt="">
-                     <!-- info del cursos -->
-                     <section>
-                         <h2 class="titulo_curso">Analisis estadistico con Excel</h2>
-                         <p class="descripcion">Para que puedas formarte, a tu disposición se ponen una amplia variedad de cursos 
-                     impartidos por Universidades y plataformas de enseñanza online, en los que contarás con todos los materiales y recursos necesarios.</p>
-                         <a class="vermas">ver mas del curso</a>
-                     </section>
-                  </article>
+                <?php
+                     }
+                   }
+        
+                ?>
+               
                </section>
            </section>
+           
           <!-- fin de esta seccion -->
 <?php
 }
 ?>
+<script src="src/logic/jquery-3.6.1.min.js"></script>
+<script src="src/logic/scripts/script1.js"></script>

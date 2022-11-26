@@ -14,6 +14,11 @@
        ?>
       <!-- fin header -->
       <div class="contener">
+           <!-- lista de busqueda -->
+          <div id="listbusq">
+             <button id="close">cerrar</button>
+              <div id="list"></div>
+          </div>
          <?php 
          if($menuMaestro){
           include('src/views/vistaMaestro.php');

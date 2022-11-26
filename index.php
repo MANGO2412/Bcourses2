@@ -57,6 +57,10 @@
         </ul>
 
         <ul>
+          <?php
+            $fechaActual = date('y-m-d');
+            echo $fechaActual;
+          ?>
           <li>Blog</li>
           <li>Redes sociales:
            <ul>

@@ -1,21 +1,30 @@
 <?php
   include('src/logic/session.php');
+  include('src/data/classes.php');
   
   if($menuStundent){
+    $myalumno=new alumno();
+    $dataset=$myalumno->get($_SESSION['id_alumno']);
+
+    if($dataset){
+      $row=mysqli_fetch_array($dataset);
+    }
 ?>
   <!-- menu de usuario -->
-   <header class="menuUser">
+   <header id="nav" class="menuUser">
         <!-- nombre y logo del sitio web -->
         <section class ="seccion1">
-         <img class = "img00" src = "src/img/logo1.png"> 
+         <img class = "img00" src = "src/img/imgPage/logo1.png"> 
         </section>
         <!-- buscador -->
         <section class="busq2"> 
-          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+          <form action="">
+            <input class="busqueda" type="text" name="Nombre Completo" id="luck" placeholder="Que curso quieres buscar?">
+          </form>
         </section>
 
         <!-- el boton para desplegar el menu -->
-         <button class="menu-toggle" aria-label="Menu toggle button">
+         <button id="hamburger"  class="menu-toggle" aria-label="Menu toggle button">
             <span class="hamburger"></span>
          </button>
          <!-- menu -->
@@ -23,8 +32,8 @@
             <ul>
                 <li>
                     <ul>
-                        <li><img src="src/img/alumnos/estudent.jpeg"></li>
-                        <li>Gomez Perez Manuel</li>
+                        <li><img src="src/img/alumnos/<?=$row['foto']?>"></li>
+                        <li><?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></li>
                     </ul>
                 </li> 
                 <li><a href="home.php">Inicio</a></li>
@@ -39,18 +48,18 @@
 }else if($menuMaestro){
 ?>
    <!-- menu de usuario -->
-   <header class="menuUser">
+   <header id="nav" class="menuUser">
         <!-- nombre y logo del sitio web -->
         <section class ="seccion1">
          <img class = "img00" src = "src/img/logo1.png"> 
         </section>
         <!-- buscador -->
         <section class="busq2"> 
-          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="luck" placeholder="Que curso quieres buscar?"></form>
         </section>
 
         <!-- el boton para desplegar el menu -->
-         <button class="menu-toggle" aria-label="Menu toggle button">
+         <button id="hamburger" class="menu-toggle" aria-label="Menu toggle button">
             <span class="hamburger"></span>
          </button>
          <!-- menu -->
@@ -74,13 +83,13 @@
   }else{
 ?>
     <!-- menu sin login -->
-    <header class="menu">
+    <header id="nav" class="menu">
         <section class ="seccion1">
          <img class = "img00" src = "src/img/logo1.png"> 
         </section>
 
         <section class="busq"> 
-          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="luck" placeholder="Que curso quieres buscar?"></form>
         </section>
 
         <!-- <button class="menu-toggle" aria-label="Menu toggle button">

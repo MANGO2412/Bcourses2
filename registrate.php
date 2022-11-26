@@ -21,7 +21,7 @@
       <!-- si el usuario tiene cuenta -->
       <p>¿ya tienes cuenta? <a href="iniciarsesion.php">inicia sesion</a></p> 
      </header>
-        <form class="form-register" action="src/logic/server.php?activity=register" method="post">
+        <form class="form-register" action="src/logic/server.php?activity=register" method="post"  enctype="multipart/form-data">
            <h4 class="Titulo_registro">Regístrate y comienza a aprender</h4>
            <input class="controls" type="text" name="name" id="nombres" maxlength="30" placeholder="Nombre" required>
             
@@ -32,6 +32,9 @@
             <input class="controls" type="text" name="tel" required id="telef" placeholder="Numero de telefono">
 
             <input class="controls" type="email" required name="email" id="Correo" maxlength="256"  placeholder="Correo electronico">
+
+              <!-- seleccionar la imagen -->
+             <input type="file" name="txtFile" value="selecciona un archivo">
 
            <input  class="controls" type="password" required name="passw" minlenght="8"  maxlength="256"  id="contraseña" placeholder="Contraseña">
            

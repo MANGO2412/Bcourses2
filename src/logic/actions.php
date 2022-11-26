@@ -2,13 +2,15 @@
  require_once("../data/classes.php");
 
  //funcion para registrar alumno
- function registerAlumno($name,$firstN,$lastM,$tel,$email,$passw){
+ function registerAlumno($name,$firstN,$lastM,$tel,$email,$photo,$passw){
     $myStudent = new alumno();
     $myuser=new user();
 
-    $idS=$myStudent->add($name,$firstN,$lastM," ",$tel);
+    $idS=$myStudent->add($name,$firstN,$lastM,$photo,$tel);
 
     if($idS !=0 || $idS != false){
+        //para cambiar en nombre de la foto
+        
         return $myuser->add($email,password_hash($passw,PASSWORD_DEFAULT),$idS,null);
     }else{
         return false;
@@ -75,7 +77,7 @@ function GetAllCourses($category){
      //pendiente crear un procedure store 
       return "datos pendient";   
     }else{  
-      $dataset= $mycourses->getAllCursos();
+      $dataset= $mycourses->getAllCursos(null);
       
       if($dataset){
         //crea el areglo json
@@ -134,5 +136,36 @@ function getOneCourses($id){
     //retorna un valor comun
     return "no hay datos";
   }
+}
+
+
+//funcion para buscar cursos
+function searchAllCuorses($valor){
+  $mycourses= new curso();
+  $dataset= $mycourses->search($valor);
+  if($dataset){
+    //crea el areglo json
+   $json=array();
+
+   //obtien los datos json
+   while ($row=mysqli_fetch_array($dataset)) {
+    $json[] = array(
+       'codigo'=>$row['codigo'],
+       'nombre'=>$row['nombre'],
+       'costo'=>$row['costo'],
+       'imagen'=>$row['imagen'],
+       'hrs'=>$row['no_hrs'],
+       'descripcion'=>$row['descripcion'],
+       'categoria'=>$row['categoria']
+    );
+   }
+   
+   //retorna un valor json
+   return json_encode($json);
+  }else{
+    //retorna un valor comun
+    return "no hay datos";
+  }
+
 }
 ?>
