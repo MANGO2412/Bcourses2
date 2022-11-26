@@ -353,3 +353,166 @@ td,th{
 body{
     background-color: #ededed;
 }
+/* ------------------------ Este es del diseño del perfil del alumno ---------------*/
+#dividida1{
+    display: flex;
+}
+.izq1{
+    background-color: #ededed;
+    height: 85vh;
+    width: 50%;
+    text-align: center;
+}
+.der1{
+    background-color: #ededed;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 85vh;
+
+}
+.imgalum{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    border: 1px solid rgb(69,69,69);
+}
+.tarjetalum{
+    margin: 80px 0px 0px 210px;
+    text-align: center;
+    color: rgb(69,69,69);
+    padding: 0px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.55);
+    width: 350px;
+    height: 400px;
+    color: #2e4b61;
+}
+
+.infousu{
+    margin: 8px 0px 0px 0px;
+}
+ul {
+    list-style-type: none;
+  }
+  .infodelusu{
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+    padding: 0px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.55);
+    width: 500px;
+    height: 280px;
+    color: #2e4b61;
+  }
+
+  .Nomb1{
+    font-weight: 50px bold;
+    text-align: center;
+    margin: 5px 10px 15px 20px;
+    color: #2e4b61;
+  }
+  .certificado{
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+    padding: 0px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.55);
+    width: 500px;
+    height: 150px;
+  }
+  .li{
+    font-weight: 100px;
+  }
+  .info{
+    font-weight: 50px bold;
+    text-align: left;
+    margin: 0px 10px 0px 20px;
+  }
+
+  ul.botonesalu{
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 15px;
+    height: 100px;
+    text-align: center;
+}
+ul.botonesalu li{
+    display:block;
+    float: left;
+    height: 60px;
+    text-align: center;
+}
+
+ul.botonesalu li a{
+    text-align: left;
+	background-color: ghostwhite;
+	border-radius:0px;
+    color:   #2a3744;
+    margin: 0px 0px 0px 0px;
+    height: 100px;
+	padding: 15px 280px 15px 15px;
+    text-align: center;
+}
+
+.botonesalu li a{
+    background-color:  #2a3744;
+    color: ghostwhite;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0px;
+    font-weight: bolder;
+    font-size: 15px;
+    border: 0px solid;
+    font-size: 12.5px;
+  }
+
+ul.botonesalu li a:hover{
+	background-color:   #2a3744;
+	border: 0px solid ghostwhite;
+	color:  ghostwhite;
+}
+
+ul.botonesa{
+    margin:5px;
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 65px;
+    height: 65px;
+}
+ul.botonesa li{
+    display:block;
+    float: right;
+    height: 60px;
+    text-align: right;
+}
+
+ul.botonesa li a{
+    text-align: center;
+	background-color: #2a3744;
+	border-radius:30px;
+    color:   white;
+
+    height: 100px;
+	
+}
+
+.botonesa li a{
+    background-color:  white;
+    color: black;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: bolder;
+    font-size: 15px;
+    margin: 8px 340px 0px 0px;
+    border: 0px solid;
+    font-size: 12.5px;
+    height: 60px;
+  }
+
+ul.botonesa li a:hover{
+	background-color:   white;
+	border: 0px solid black;
+	color:  black;
+}
