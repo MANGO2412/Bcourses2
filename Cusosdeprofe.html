@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tarjetas</title>
+	<link rel="stylesheet" href="src/styles/home.css">
+</head>
+<header class="menuUser">
+    <!-- nombre y logo del sitio web -->
+    <section class ="seccion1">
+     <img class = "img00" src = "src/img/logo1.png"> 
+    </section>
+    <!-- buscador -->
+    <section class="busq2"> 
+      <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+    </section>
+
+    <!-- el boton para desplegar el menu -->
+     <button class="menu-toggle" aria-label="Menu toggle button">
+        <span class="hamburger"></span>
+     </button>
+     <!-- menu -->
+    <nav class="nav">
+        <ul>
+            <li>
+                <ul>
+                    <li><img src="src/img/alumnos/estudent.jpeg"></li>
+                    <li>Gomez Perez Manuel</li>
+                </ul>
+            </li> 
+            <li><a href="home.php">Inicio</a></li>
+            <li><a href="home.php?menu=mi_pago">pagos</a></li>
+            <li><a href="home.php?menu=mis_cursos">Mis cursos</a></li>
+            <li><a href="home.php?menu=configurar">configurar cuenta</a></li>
+            <li><a href="src/logic/server.php?activity=logout">cerrar sesion</a></li>
+        </ul>
+    </nav>
+</header>
+<H2 class="cur">Cursos Asignados</H2>
+<body>
+	<div class="cuerpo">	
+
+		<div class="tarjeta">
+			<!-- primera modificacion ques es el de la imgen junto con los nombres de los curos y el nombre de la zorra del profesor que ese va a ser el mismo xd junto con la -->
+			<div class="cabecera" style="background: url(IMAGEN DEL CURSO QUE SE IMPARTE);background-repeat: no-repeat;-webkit-background-size: cover;background-size: cover;">
+				<a class="parte1" href="">
+				<div class="titulo">202051 FUNDAMENTOS DE PROGRAMACION</div>				
+				</a>
+				<div class="nombre">RAUL EDUARDO ALMORA HERNANDEZ </div>
+			</div>
+
+			<div class="medio">				
+				<div class="texto">
+					<img class="foto" src="imagenes/user1.jpg" alt="">
+					<h2>Informacion del curso</h2>
+					<div class="tareas">
+						<a class="link" href="">El curso se trata sobre bla vlaclaclaclaclclaclalcalclclalcl</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="pie">				
+				<span class="icon2"><i class="far fa-folder fa-lg"></i></span>
+			</div>
+
+		</div>
+
+
+
+		<div class="tarjeta">
+			<div class="cabecera" style="background: url(imagenes/img2.jpg);background-repeat: no-repeat;-webkit-background-size: cover;background-size: cover;">
+				<a class="parte1" href="">
+				<div class="titulo">202051 ELECTRONICA</div>				
+				</a>
+				<div class="nombre">JORGE LUIS VELAZCO VERA</div>
+			</div>
+			<div class="medio">				
+				<div class="texto">
+					<img class="foto" src="imagenes/user2.jpg" alt="">
+					<h2>Se entrega hoy</h2>
+					<div class="tareas">
+						<a class="link" href="">Como leer un articulo cientifico</a>
+					</div>
+				</div>
+			</div>
+			<div class="pie">
+				
+				<span class="icon2"><i class="far fa-folder fa-lg"></i></span>
+			</div>
+		</div>
+
+	</div>
+	<script src="https://kit.fontawesome.com/5305b20e95.js " crossorigin="anonymous "></script>
+</body>
+</html>
