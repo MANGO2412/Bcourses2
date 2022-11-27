@@ -300,6 +300,30 @@ ul.botones li a:hover{
     text-align: center;
 }
 
+/*clases para el formulario cambiar datos*/
+.ventana{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.787);
+    z-index: 20;
+    transform: translateX(-100%);
+}
+
+.ventana form{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 40%;
+    height: 50%;
+}
+
+.ventana.show{
+  transform: translateX(0);
+}
+
 /* -------------------------------------------------- */
 /* ---------------- Este es de lo de los pagos ------------------------- */
 .pagos{
@@ -353,3 +377,6 @@ td,th{
 body{
     background-color: #ededed;
 }
+
+
+/* -------------------------------------------------------------------------------- */

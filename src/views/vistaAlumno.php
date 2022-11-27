@@ -8,6 +8,63 @@ if($menu_accion_user=='mis_cursos'){
 }else if($menu_accion_user=='configurar'){
 ?>
 <p><?=$menu_accion_user?></p>
+<section>
+   <!-- obtener info del alumno y motrarlo -->
+   <?php
+    $mystudent = new alumno();
+
+    $dataset=$mystudent->get($_SESSION['id_alumno']);
+    if($dataset){
+        $row=mysqli_fetch_assoc($dataset);
+    }
+   ?>
+   
+   <img src="src/img/alumnos/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/alumnos/defaultuser.png'">
+   <!-- informacion del usuario -->
+   <ul>
+    <li>Nombre:<?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></li>
+    <li>Correo:<?=$_SESSION['email']?></li>
+    <li>Numero de telefono:<?=$row['n_celular']?></li>
+    <li>fecha de registro:<?=$_SESSION['creacion']?></li>
+   </ul>
+   <button id="edit">cambiar cuenta</button>
+
+
+   <!-- formualrio escondido -->
+   <div class="ventana" id="formdata">
+   <form  action="src/logic/server.php?activity=updateStudent" method="post" enctype="multipart/form-data">
+     <h1>cambiar informacion de la cuenta</h1>
+     <!-- id del alumno -->
+     <input type="text" name="id"  value="<?=$row['matricula']?>">
+
+     <label for="">nombre</label>
+     <input type="text" name="nombre" value="<?=$row['nombre']?>">  
+
+     <label for="">apellido paterno</label>
+     <input type="text" name="apellP" value="<?=$row['ApellidoP']?>">
+
+     <label for="">apellido materno</label>
+     <input type="text" name="apellM" value="<?=$row['ApellidoM']?>">
+
+     <label for="">numero de telefono</label>
+     <input type="text" name="cel" value="<?=$row['n_celular']?>">
+     <!-- imagen de la foto -->
+     <input type="text" hidden name="imageOld" value="<?=$row['foto']?>">
+
+     <label for="">imagen</label>
+     <input type="file" name="imageNew">
+
+
+     <input id="save" type="submit" value="gurdar">
+     <input id="cancel" type="submit" value="cancelar">
+   </form>
+   </div>
+  
+
+   <!-- certificados -->
+
+   <!--  -->
+</section>
 
 
 <?php

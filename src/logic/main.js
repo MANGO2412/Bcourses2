@@ -113,6 +113,7 @@ if(virifyEL == null){
             type:'POST',
             data:{activity:'getcourses'},
             success: function (request) {
+                // console.log(request);
                  showCourses('cursos',request);
             }
         });

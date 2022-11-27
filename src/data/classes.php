@@ -82,9 +82,16 @@ class alumno extends conexionDB{
     }
     
     //metodo para modificar el 
-    public function set(){
-
-    }
+    public function set($id,$nom,$apellP,$apellM,$foto,$cel){
+        $con = $this->connect();
+        if($con){
+         $sql="update alumno set nombre='$nom',ApellidoP='$apellP',ApellidoM='$apellM',foto='$foto',n_celular='$cel' where matricula=$id;";
+         echo $sql;
+         return $this->updateDelete($sql);
+        }else{
+         return false;
+      }
+     }
 }
 
 /**********
@@ -136,7 +143,7 @@ class user extends conexionDB{
         }
     }
 
-    //metodo para agregar
+    //metodo para agregar 
     public function add($email,$passw,$idA,$idM){
       $con=$this->connect();
       $fechaActual = date('y-m-d');
@@ -154,8 +161,27 @@ class user extends conexionDB{
        }
     }
 
-    //metodo para modificar
-    public function set(){
+    //metodo para modificar--pendiente
+    public function set($id,$passw){
+      $con=$this->connect();
+      $dataset=false;
+      
+      if($con){
+         $dataset=$this->query("select contraseña from cuenta where codigo=$id");
+         if($dataset){
+            $fila=mysqli_fetch_array($dataset);
+            $same= password_verify($passw,$fila['contraseña']);
+            if(!$same){
+               $password=password_hash($passw,PASSWORD_DEFAULT);
+               $dataset= $this->updateDelete("update cuenta set contraseña='$password'");
+            }else{
+              $dataset=true;
+            }
+         }
+
+         return $dataset;
+      }
+ 
     }
 
 

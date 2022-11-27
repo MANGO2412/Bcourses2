@@ -32,6 +32,13 @@
     echo getOneCourses($_POST['idC']);
   }else if($_REQUEST["activity"]=="search"){
     echo searchAllCuorses($_REQUEST["namecurso"]);
+  }else if($_REQUEST["activity"]=="updateStudent"){
+    echo $_POST['id'];
+    $result=updateStrudent($_POST['id'],$_POST['nombre'],$_POST['apellP'],$_POST['apellM'],$_FILES,$_POST['imageOld'],$_POST['cel']);
+    header('location: ../../home.php?menu=configurar');
+
+  }else{
+    echo "tu esta ropiendo el sistema, reporta este error";
   }
 
 ?>

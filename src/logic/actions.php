@@ -1,6 +1,39 @@
 <?php
  require_once("../data/classes.php");
 
+/**********
+ * funciones para extras
+ *********/
+
+ //funcion para mover la foto de un archivo local al servidor
+ function move_foto2($foto,$id){
+  $pos=strpos($foto['imageNew']['name'],'.');
+  $ext=substr($foto['imageNew']['name'],$pos, strlen($foto['imageNew']['name']));
+  $nameFile=$id.$ext;
+
+  $archivo='../img/alumnos/'.$nameFile;       
+  move_uploaded_file($foto['imageNew']['tmp_name'],$archivo); 
+  return $nameFile;
+}
+
+//funcion para actualizar la foto 
+function updatePhoto($fotoNew,$id,$fotoOld){
+  echo $fotoNew['imageNew']['name'];
+    if(!empty($fotoNew['imageNew']['name'])){
+      $verifiy= unlink('../img/alumnos/'.$fotoOld)?true:false;
+      if($verifiy){
+        return move_foto2($fotoNew,$id);
+      }else{
+        return $fotoOld;
+      }
+
+    }else{
+      return $fotoOld;
+    }
+
+  }
+//---------------------------------------------------------------------------------------
+
  //funcion para registrar alumno
  function registerAlumno($name,$firstN,$lastM,$tel,$email,$photo,$passw){
     $myStudent = new alumno();
@@ -33,7 +66,9 @@ function login($username,$password,$tipUser){
         $fila=mysqli_fetch_assoc($result);
         session_start();
         $_SESSION['email']=$fila['correo'];
-        $_SESSION['id']=$fila['codigo'];
+        $_SESSION['creacion']=$fila['fecha_creacion'];
+        $_SESSION['contraseña']=$fila['contraseña'];
+        // $_SESSION['id']=$fila['codigo'];
         
         //valida el tipo de usuario
          if($tipUser == "alumno"){
@@ -168,4 +203,23 @@ function searchAllCuorses($valor){
   }
 
 }
+
+
+//function para actualizar alumno y  cuenta
+ function updateStrudent($idAlum,$nombre,$apellP,$apellM,$fotonew,$fotoOld,$cel){
+  $myStudent= new alumno();
+  $file=updatePhoto($fotonew,$idAlum,$fotoOld);
+  if($myStudent->set($idAlum,$nombre,$apellP,$apellM,$file,$cel)){
+    return true;
+  }else{
+    return false;
+  }
+
+
+}
+
+
+
+
+
 ?>

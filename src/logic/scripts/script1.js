@@ -16,7 +16,7 @@ for (let i = 0; i < btnsCategory.length; i++) {
     }
 }
 
-//codiog del buscador
+//instrucciones para que el buscador trabaje
 $(document).ready(function (){
  let content = document.getElementById("listbusq");
  let list=document.getElementById("list");
@@ -75,3 +75,35 @@ $(document).ready(function (){
 
    })
 })
+
+
+
+//codigo para eventos de cambiar formulario
+$(document).ready(function () {
+
+    //para editar el formualrio
+   $('#edit').click((e)=>{
+       $('#formdata').addClass('show');     
+   })
+    
+    //para no editar el formulario
+   $('#cancel').click(function (e) {
+       //evita mandar cosas al servidor
+      e. preventDefault();
+      $('#formdata').removeClass('show');
+
+   });
+
+   //para guardar los cambios
+   $('#save').click(function (e) {
+       let confrmar = confirm("esta seguro que quieres realizar estos cambios");
+       if(!confrmar){
+        e. preventDefault();
+       }
+
+   });
+
+    // console.log($('#formdata').childre("input").length);
+})
+
+
