@@ -1,0 +1,81 @@
+<html>
+    
+    <head>
+        <title>Pagos Realizados</title>
+        <link rel="stylesheet" type="text/css" href="src/styles/home.css"/>
+        <link rel="stylesheet" href="src/styles/principal.css">
+
+         <!-- menu de usuario -->
+   <header class="menuUser">
+    <!-- nombre y logo del sitio web -->
+    <section class ="seccion1">
+     <img class = "img00" src = "src/img/logo1.png"> 
+    </section>
+    <!-- buscador -->
+    <section class="busq2"> 
+      <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+    </section>
+
+    <!-- el boton para desplegar el menu -->
+     <button class="menu-toggle" aria-label="Menu toggle button">
+        <span class="hamburger"></span>
+     </button>
+     <!-- menu -->
+    <nav class="nav">
+        <ul>
+            <li>
+                <ul>
+                    <li><img src="src/img/alumnos/estudent.jpeg"></li>
+                    <li>Gomez Perez Manuel</li>
+                </ul>
+            </li> 
+            <li><a href="home.php">Inicio</a></li>
+            <li><a href="home.php?menu=mi_pago">pagos</a></li>
+            <li><a href="home.php?menu=mis_cursos">Mis cursos</a></li>
+            <li><a href="home.php?menu=configurar">configurar cuenta</a></li>
+            <li><a href="src/logic/server.php?activity=logout">cerrar sesion</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<section id="dividida1">
+    <div class = izq1>
+        <div class="tarjetalum"><img class="imgalum" src="src/img/girl.PNG">
+        <p class="Nomb1">Nombre Completo</p>
+        <p class="Nomb1">Alumno</p>
+    </div>
+  </div>
+  <div class = der1>
+    <div class="infousu">
+        <ul class="botonesa">
+        <p2 class="infous">Informacion del Usuario</p2>
+        <li><a class="botoninfo" href="....">Cambiar Informacion</a></li>
+        </ul>
+    </div>
+    <div class="infodelusu">
+    <ul>
+        <br>
+        <li class="info">Nombre:</li>
+        <br>
+        <li class="info">Apellido:</li>
+        <br>
+        <li class="info">Numero Telefonico:</li>
+        <br>
+        <li class="info">Correo Electronico:</li>
+        <br>
+        <li class="info">Contraseña:</li>
+    </ul>
+    </div>
+        <br>
+        <p2 class="infous">Certificados </p2>
+        <div class="certificado">
+            <ul class="botonesalu">
+                <br>
+
+                <li class="xdd"> <a href="xd"> Programacion Orientada a objetos</a></li>
+    </ul>
+    </div>
+    
+  </div>
+</body>
+</html>
