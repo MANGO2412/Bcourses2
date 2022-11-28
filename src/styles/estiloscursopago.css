@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.formulariopago{
+    border-radius: 10px;
+    display: flex;
+    margin-top: 10%;
+    margin-left: 25%;
+    background-color: #bdbdbd;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+}
+
+.imagen{
+    width: 50%;
+    background-color: blue;
+    width: 50%;
+    height: 40%;
+}
+
+
+.Pago{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 40px;
+    margin:10px
+}
+
+
+.controls{
+height: 45px;
+margin:1%;
+width: 95%;
+padding-left: 40px;
+border-radius: 20px;
+font-size: 12px;
+border: none;
+font-family: Roboto,Helvetica,Arial,sans-serif;
+font-weight: bold;
+}
+
+
+.expiracion{
+    margin-left: 50%;
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+    width: 150px;
+    height: 45px;
+
+}
+label{
+    margin-right: 20px;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.controls2{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2%;
+    text-align: center;
+    width: 80px;
+    height: 90%;
+    display: inline-block;
+    border-style: none;
+    border-radius:20px;
+}
+
+body {
+    background-image: url("../img/estudio2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    backdrop-filter: blur(5px);
+  }
