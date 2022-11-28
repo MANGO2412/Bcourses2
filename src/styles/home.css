@@ -678,3 +678,18 @@ a{
     font-size: 30px;
     color: #2e4b61;
 }
+
+/* ----------------------------- lista de profesores --------------------*/
+.matricula{
+    font-weight: bolder;
+    color: #2e4b61;
+    
+}
+.alumno{
+    font-weight: bolder;
+    color: #2e4b61;
+}
+.grupo{
+    font-weight: bolder;
+    color: #2e4b61;
+}
