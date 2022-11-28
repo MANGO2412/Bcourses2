@@ -1,5 +1,5 @@
 <?php
-include_once('src/data/classes.php');
+
 
 if($menu_accion_user=='mis_cursos'){
 ?>

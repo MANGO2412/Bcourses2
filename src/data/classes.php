@@ -2,15 +2,14 @@
 include_once("config.php");
 
 //funciones para los metodos
-function move_foto($foto,$id){
-  $pos=strpos($foto['txtFile']['name'],'.');
-  $ext=substr($foto['txtFile']['name'],$pos, strlen($foto['txtFile']['name']));
-  $nameFile=$id.$ext;
-
-  $archivo='../img/alumnos/'.$nameFile;       
-  move_uploaded_file($foto['txtFile']['tmp_name'],$archivo); 
-  return $nameFile;
-}
+ function move_foto($foto,$id){
+   $pos=strpos($foto['txtFile']['name'],'.');
+   $ext=substr($foto['txtFile']['name'],$pos, strlen($foto['txtFile']['name']));
+   $nameFile=$id.$ext;
+   $archivo='../img/alumnos/'.$nameFile;       
+   move_uploaded_file($foto['txtFile']['tmp_name'],$archivo); 
+   return $nameFile;
+ }
 
 
 //-----------------------------------------------clases-------------------------------------------------
@@ -18,7 +17,38 @@ function move_foto($foto,$id){
 /*****
  clase maestro
  *****/
+class maestro extends conexionDB{
+    //meto
+     public function get($id){
+      $con= $this->connect();
+      if($con){
+        $sql="select * from maestro where codigo=$id";
+        return $this->query($sql);
+      }else{
+         return false;
+      }
 
+     }
+     
+     public function getOwnCourses($id){
+        $con=$this->connect();
+        if($con){
+         $sql="call InfoCursosMaster($id);";
+         return $this->query($sql);
+        }else{
+          return false;
+        }
+     }
+
+
+     public function add(){
+
+     }
+
+     public function set(){
+
+     }
+}
 
 
 
@@ -65,7 +95,7 @@ class alumno extends conexionDB{
       $con=$this->connect();
       $file=!empty($foto['txtFile']['name'])?true:false;
 
-      $sql="insert into alumno(nombre,apellidoP,apellidoM,foto,N_celular) values('$nom','$apellP','$apellM',' ','$cel');";
+      $sql="insert into alumno(nombre,ApellidoP,ApellidoM,foto,n_celular) values('$nom','$apellP','$apellM',' ','$cel');";
       if($con){
         $id_new =$this->insert($sql);
 

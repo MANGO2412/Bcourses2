@@ -1,6 +1,6 @@
 <?php
   include('src/logic/session.php');
-  include('src/data/classes.php');
+  include_once('src/data/classes.php');
   
   if($menuStundent){
     $myalumno=new alumno();
@@ -46,6 +46,13 @@
     </header>
 <?php
 }else if($menuMaestro){
+  $mymaster=new maestro();
+  $dataset=$mymaster->get($_SESSION['id_maestro']);
+
+  if($dataset){
+    $row=mysqli_fetch_array($dataset);
+  }
+
 ?>
    <!-- menu de usuario -->
    <header id="nav" class="menuUser">
@@ -53,11 +60,6 @@
         <section class ="seccion1">
          <img class = "img00" src = "src/img/logo1.png"> 
         </section>
-        <!-- buscador -->
-        <section class="busq2"> 
-          <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="luck" placeholder="Que curso quieres buscar?"></form>
-        </section>
-
         <!-- el boton para desplegar el menu -->
          <button id="hamburger" class="menu-toggle" aria-label="Menu toggle button">
             <span class="hamburger"></span>
@@ -68,11 +70,12 @@
                 <li>
                     <ul>
                         <li><img src="src/img/alumnos/estudent.jpeg"></li>
-                        <li>Gomez Perez Manuel</li>
+                        <li><?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></li>
                     </ul>
                 </li> 
                 <li><a href="home.php?menu=c_asignado">cursos asignados</a></li>
-                <li><a href="home.php?menu=configurar">configurar cuenta</a></li>
+                <li><a 
+                href="home.php?menu=infoCuenta">ver cuenta</a></li>
                 <li><a href="src/logic/server.php?activity=logout">cerrar sesion</a></li>
             </ul>
         </nav>

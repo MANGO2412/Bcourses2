@@ -1,7 +1,9 @@
 <?php
    include('src/logic/session.php');
-   if($menuStundent || $menuMaestro){
+   if($menuStundent){
      header('location: home.php');
+   }else if($menuMaestro){
+    header('location: home.php?menu=c_asignado');
    }
 
 ?>

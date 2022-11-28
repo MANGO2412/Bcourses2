@@ -125,7 +125,7 @@ function GetAllCourses($category){
            'nombre'=>$row['nombre'],
            'costo'=>$row['costo'],
            'imagen'=>'"img/null"
-           alt="img not found" onerror=this.src="src/img/default.png"',
+            alt="img not found" onerror=this.src="src/img/default.png"',
            'hrs'=>$row['no_hrs'],
            'descripcion'=>$row['descripcion'],
            'categoria'=>$row['categoria']
