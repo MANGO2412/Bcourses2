@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tarjetas</title>
+    <link rel="stylesheet" href="src/styles/home.css">
+	<link rel="stylesheet" href="src/styles/estiloscursopago.css">
+    
+</head>
+<header class="menuUser">
+    <!-- nombre y logo del sitio web -->
+    <section class ="seccion1">
+     <img class = "img00" src = "src/img/logo1.png"> 
+    </section>
+    <!-- buscador -->
+    <section class="busq2"> 
+      <form action=""><input class="busqueda" type="text" name="Nombre Completo" id="nombres" placeholder="Que curso quieres buscar?"></form>
+    </section>
+
+    <!-- el boton para desplegar el menu -->
+     <button class="menu-toggle" aria-label="Menu toggle button">
+        <span class="hamburger"></span>
+     </button>
+     <!-- menu -->
+    <nav class="nav">
+        <ul>
+            <li>
+                <ul>
+                    <li><img src="src/img/alumnos/estudent.jpeg"></li>
+                    <li>Gomez Perez Manuel</li>
+                </ul>
+            </li> 
+            <li><a href="home.php">Inicio</a></li>
+            <li><a href="home.php?menu=mi_pago">pagos</a></li>
+            <li><a href="home.php?menu=mis_cursos">Mis cursos</a></li>
+            <li><a href="home.php?menu=configurar">configurar cuenta</a></li>
+            <li><a href="src/logic/server.php?activity=logout">cerrar sesion</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <section class = "principal">
+<section class = "formulariopago">
+
+    <form class="form-register" action="src/logic/server.php?activity=register" method="post"  enctype="multipart/form-data">
+        <h4 class="Pago">Pago </h4>
+
+        <input class="controls" type="text" name="name" id="nombres" maxlength="50" placeholder="Nombre" required>
+
+
+         <input class="controls" type="text" name="firstN"  id="nombres" maxlength="30" placeholder="Primer apellido" required>
+
+
+         <input class="controls" type="text" name="lastN" required id="nombres" maxlength="30"  placeholder="Segundo apellido">
+
+        <input  class="controls" type="text" required name="TarjetN"  maxlength="16"  id="Tarjeta" placeholder="Numero de tarjeta">
+        
+        <input class= "controls" type= "text" required name="CVV" maxlength="4" id="CVV" placeholder="Codigo de seguridad">
+     
+        <article class="expiracion">
+            <label>Fecha de expiracion</label>
+            <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" placeholder="MM">
+            <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" placeholder="AA"> 
+           </article>
+           <input class="boton" type="submit" value="Relizar pago">
+    
+    </form>
+
+    
+     
+
+
+</section>
+</section>
+</body>
+<script src="https://kit.fontawesome.com/5305b20e95.js " crossorigin="anonymous "></script>
+</html>
