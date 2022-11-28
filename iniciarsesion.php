@@ -25,7 +25,7 @@
     <form class="form_sesion" action="src/logic/server.php?activity=login" method="post">
         <h4>Inicio de sesion</h4>
         <!-- correo del usuario -->
-       <input class="controls2"  type="text" name="email" placeholder="correo">
+       <input class="controls2"  type="text" name="email" required maxlength="256" pattern="[0-9]+" pattern="[a-zA-Z]+"  placeholder="correo">
        <!-- tipo de usuario -->    
       <select class="controls2" name="tipUser">
          <option value=null>¿como quieres iniciar sesion?</option>
@@ -34,7 +34,7 @@
       </select>
       
        <!-- contraseña del usario -->
-       <input class="controls2" type="password" name="passw" placeholder="contraseña">
+       <input class="controls2" type="password" minlenght="8" name="passw" maxlength="256" pattern="[0-9]+" pattern="[a-zA-Z]+"  required placeholder="contraseña">
 
        <!-- iniciar sesion -->
        <input class="btn_sesion" type="submit" value="Iniciar">
