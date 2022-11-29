@@ -78,6 +78,43 @@ if($menu_accion_user=='mis_cursos'){
   <p><?=$id_curso?></p>
 
 <?php
+}else if($menu_accion_user=="realiza_pago" && $menuStundent){
+?>
+
+<section>
+  <section class = "formulariopago">
+  
+      <form class="form-register" action="src/logic/server.php?activity=pago" method="post"  enctype="multipart/form-data">
+          <h4 class="Pago">Pago </h4>
+  
+          <input class="controls" type="text" name="name" id="nombres" maxlength="50" placeholder="Nombre" required>
+  
+  
+           <input class="controls" type="text" name="firstN"  id="nombres" maxlength="30" placeholder="Primer apellido" required>
+  
+  
+           <input class="controls" type="text" name="lastN" required id="nombres" maxlength="30"   placeholder="Segundo apellido">
+  
+          <input  class="controls" type="text" required name="TarjetN"  maxlength="16"  id="Tarjeta" pattern="[0-9]+" placeholder="Numero de tarjeta">
+          
+          <input class= "controls" type= "text" required name="CVV" maxlength="4" id="CVV" pattern="[0-9]+" placeholder="Codigo de seguridad">
+           
+          <input type="text" hidden name="alumno" value="<?=$_SESSION['id_alumno']?>">
+          <input type="text" hidden name="grupo" value="<?=$_REQUEST['id_grupo']?>" >
+          <input type="text" hidden name="monto" value="<?=$_REQUEST['costo']?>">
+       
+          <article class="expiracion">
+              <label>Fecha de expiracion</label>
+              <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" pattern="[0-9]+" placeholder="MM">
+              <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" pattern="[0-9]+" placeholder="AA"> 
+             </article>
+             <input class="boton" type="submit" value="Relizar pago">
+      
+      </form>
+  </section>
+</section>
+
+<?php
 }else{
 ?>
   <!--opciones para buscar cursos por categoria  -->

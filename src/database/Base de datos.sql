@@ -4,29 +4,29 @@ drop database CursosOnline;
 --tabla de maestro
 create table maestro(
     	codigo integer auto_increment primary key,
-    	nombre char(25) not null, 
-    	ApellidoP char(20) not null,
-    	ApellidoM char(20) null, 
-    	foto char(100) null, 
-    	n_celular char(10) not null
+    	nombre varchar(25) not null, 
+    	ApellidoP varchar(20) not null,
+    	ApellidoM varchar(20) null, 
+    	foto varchar(100) null, 
+    	n_celular varchar(10) not null
 );
 
 
 --tabla de alumno
 create table alumno(
  	matricula integer primary key auto_increment,
- 	nombre char(25) not null, 
- 	ApellidoP char(20) not null, 
- 	ApellidoM char(20) null, 
- 	foto char(100) null,
- 	n_celular char(10) not null
+ 	nombre varchar(25) not null, 
+ 	ApellidoP varchar(20) not null, 
+ 	ApellidoM varchar(20) null, 
+ 	foto  varchar(100) null,
+ 	n_celular varchar(10) not null
  );
 
 
 --tabla de categoria
 create table categoria(
     	codigo integer primary key auto_increment,
-    	nombre char(100) not null, 
+    	nombre varchar(100) not null, 
     	descripcion text(500) not null
 );
 
@@ -34,9 +34,9 @@ create table categoria(
 --tabla de curso
 create table curso(
     	codigo integer primary key auto_increment,
-	    nombre char(100) not null, 
+	    nombre varchar(100) not null, 
     	costo  decimal(10,2) not null, 
-    	imagen char(100) null, 
+    	imagen varchar(100) null, 
 	    no_hrs integer not null, 
     	descripcion text(500) not null,
     	categoria integer, 
@@ -48,7 +48,7 @@ create table curso(
 --tabla de temas
 create table temas(
    	codigo integer primary key auto_increment, 
-   	titulo char(100) not null, 
+   	titulo varchar(100) not null, 
 	descripcion text(500) not null,  
    	curso integer not null,
    	constraint fk_temas foreign key(curso) references curso(codigo) on delete cascade on update cascade
@@ -60,8 +60,8 @@ create table temas(
 --tabla de cuentas
 create table cuenta(
     	codigo integer primary key auto_increment, 
-    	correo char(64) not null,
-    	contraseña char(72) not null, 
+    	correo varchar(64) not null,
+    	contraseña varchar(72) not null, 
     	fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     	maestro integer null,
 	    alumno integer null,
@@ -237,21 +237,21 @@ Insert into temas(titulo,descripcion,curso) values('analizando datos con python'
 Insert into temas(titulo,descripcion,curso) values('visuslizando datos con python', 'La visualización de datos es la representación gráfica de los datos para transmitir de manera interactiva y eficiente las ideas a los clientes y partes interesadas en general.',12);
 Insert into temas(titulo,descripcion,curso) values('Meachine Learning con python', 'El Machine Learning puede ser una herramienta increíblemente beneficiosa para descubrir información y predecir tendencias futuras. Este curso de aprendizaje automático con Python te brindará todas las herramientas que necesitas para comenzar con el aprendizaje supervisado y autónomo.',12);
 
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Curso online de Adobe Photoshop', null, '2020-9-1','2020-12-24', 1,2);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Ingles', null, '2020-9-1', '2020-12-24', 2,1);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Curso De Desarrollador - Python', null, '2020-9-1', '2020-12-24', 3,3);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Curso Desarrollo Web - Aprende HTML y CSS', null, '2020-9-1', '2020-12-24', 4,4);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Curso Programación - Java', null, '2020-9-1', '2020-12-24', 5,5);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,Curso) values('Curso online de Adobe Photoshop', 0, '2022-12-1','2023-3-24', 1,0,2);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,Curso) values('Ingles', 0, '2022-12-1', '2023-4-24', 2,0,1);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,Curso) values('Curso De Desarrollador - Python', 0, '2022-12-5', '2023-3-2', 3,0,3);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,Curso) values('Curso Desarrollo Web - Aprende HTML y CSS', 0, '2022-12-1', '2023-3-24', 4,0,4);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,Curso) values('Curso Programación - Java', 0, '2022-12-3', '2023-4-24', 5,0,5);
 
 
 
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Introducción a las finanzas', null, '2022-12-1', '2023-4-3', 1,6);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Curso online de Manejo fundamental de Adobe', null, '2022-12-1', '2023-4-3', 2,7);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Curso online de Introducción a Adobe Photoshop', null, '2022-12-1', '2023-4-3', 3,8);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Introducción a Matemáticas para Finanzas y Negocios', null, '2022-12-1', '2023-5-2', 4,9);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Curso online de Diseño de logotipos', null, '2022-12-1', '2023-4-3', 5,10);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Herramientas para el Análisis de Big Data', null, '2022-12-1', '2023-5-7', 1,11);
-Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Ciencia de datos con Python', null, '2022-12-1', '2023-5-7', 2,12);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Introducción a las finanzas', 0, '2022-12-1', '2023-4-3', 1,0,6);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Curso online de Manejo fundamental de Adobe', 0, '2022-12-1', '2023-4-3', 2,0,7);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Curso online de Introducción a Adobe Photoshop', 0, '2022-12-1', '2023-4-3', 3,0,8);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Introducción a Matemáticas para Finanzas y Negocios', 0, '2022-12-1', '2023-5-2', 4,0,9);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Curso online de Diseño de logotipos', 0, '2022-12-1', '2023-4-3', 5,0,10);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Herramientas para el Análisis de Big Data', 0, '2022-12-1', '2023-5-7', 1,0,11);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,disponibilidad,curso) values('Ciencia de datos con Python', 0, '2022-12-1', '2023-5-7', 2,0,12);
 ---procedure stores
 
 --info del grupo

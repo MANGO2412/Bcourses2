@@ -1,5 +1,7 @@
 <?php
 $menu_accion_user=isset($_REQUEST['menu'])?$_REQUEST['menu']:'inicio';
+
+$fondo_pago=isset($_REQUEST['menu'])&&$_REQUEST['menu']=="realiza_pago"?'class="principal"':"class=''";
 $id_curso=isset($_REQUEST['id_curso'])?$_REQUEST['id_curso']:'no existe';
 ?>
 <!DOCTYPE html>
@@ -8,10 +10,10 @@ $id_curso=isset($_REQUEST['id_curso'])?$_REQUEST['id_curso']:'no existe';
      <!-- <link rel="stylesheet" href="trash/EstilosCategoria.css" type="text/css"/> -->
      <!-- <link rel="stylesheet" href="src/styles/principal.css"> -->
      <link rel="stylesheet" href="src/styles/home.css">
-    
+     <link rel="stylesheet" href="src/styles/estiloscursopago.css">
      <title><?=$menu_accion_user?></title> 
     </head>
-    <body>
+    <body <?=$fondo_pago?>>
       <!-- header -->
        <?php 
        include('src/views/menu.php');
@@ -35,9 +37,9 @@ $id_curso=isset($_REQUEST['id_curso'])?$_REQUEST['id_curso']:'no existe';
       </div>
   
      <!-- scripts -->
-     <script src="src/logic/jquery-3.6.1.min.js"></script>
-     <script src="src/logic/main.js"></script>
+     <script src="src/logic/scripts/jquery-3.6.1.min.js"></script>
+     <script src="src/logic/scripts/main.js"></script>
      <script src="src/logic/scripts/script1.js"></script>   
-     <script src="src/logic/script.js"></script>
+      <script src="src/logic/scripts/script.js"></script>
   </body>
 </html>

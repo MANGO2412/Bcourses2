@@ -75,7 +75,7 @@
      </footer>
 
     <!-- script -->
-    <script src="src/logic/jquery-3.6.1.min.js"></script>
-    <script src="src/logic/main.js"></script>
+    <script src="src/logic/scripts/jquery-3.6.1.min.js"></script>
+    <script src="src/logic/scripts/main.js"></script>
 </body>
 </html>

@@ -42,8 +42,7 @@ class conexionDB{
          $newid=mysqli_insert_id($this->con);
          return $newid;
        }else{
-         $newid=0;
-         return $newid;
+          return mysqli_error($this->con);
        }
     }
     

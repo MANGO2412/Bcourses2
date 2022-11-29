@@ -310,11 +310,55 @@ class tema extends conexionDB{
 /***
  clase grupo
  ****/
+class grupo extends conexionDB{
+   public function getAll(){
 
+   }
+
+   public function get(){
+
+   }
+
+
+}
 
  /***
   * clase pago
   */
+class pago extends conexionDB{
+  public function  set($monto,$fecha,$idAlumn,$idGrp){
+    $con =$this->connect();
+
+    
+
+    if($con){
+      $sql="insert into pago(monto,fecha,alumno,grupo) values($monto,'$fecha',$idAlumn,$idGrp)";
+      $sql2="insert into alumno_grupo(alumno,grupo) values($idAlumn,$idGrp) ";
+      $mens=true;
+
+      try {
+        echo $sql;
+        $newid = $this->insert($sql);
+      } catch (Exception $e) {
+        $mens= $e->getMessage();
+        $newid=0;
+      }  
+    
+      if($newid > 0 && $mens == true){
+        echo $sql2;
+        return $this->insert($sql2);
+      }else{
+        echo $mens;
+        return "".$mens;
+      }
+      
+    }else{
+      return false;
+    }
+  }
+  
+}
+
 
 
 ?>

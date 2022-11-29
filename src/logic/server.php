@@ -24,19 +24,33 @@
 
   }else if($_REQUEST["activity"]=="login"){
      login($_POST['email'],$_POST['passw'],$_POST['tipUser']);
+     
   }else if($_REQUEST['activity']=="logout"){
       logout();
-  }else if($_REQUEST["activity"]== "getcourses"){
-      echo GetAllCourses(null);
-  }else if($_REQUEST["activity"]=="oneGetCourse"){
-    echo getOneCourses($_POST['idC']);
+
   }else if($_REQUEST["activity"]=="search"){
     echo searchAllCuorses($_REQUEST["namecurso"]);
-  }else if($_REQUEST["activity"]=="updateStudent"){
-    echo $_POST['id'];
-    $result=updateStrudent($_POST['id'],$_POST['nombre'],$_POST['apellP'],$_POST['apellM'],$_FILES,$_POST['imageOld'],$_POST['cel']);
-    header('location: ../../home.php?menu=configurar');
 
+  }else if($_REQUEST["activity"]=="updateStudent"){
+     $result=updateStrudent($_POST['id'],$_POST['nombre'],$_POST['apellP'],$_POST['apellM'],$_FILES,$_POST['imageOld'],$_POST['cel']);
+      header('location: ../../home.php?menu=configurar');
+
+  }else if($_REQUEST["activity"]=="pago"){
+    //  echo $_POST['alumno'];
+    //  echo $_POST['grupo'];
+    //  echo $_POST['monto'];
+
+    $operacion=pagoRegistro($_POST['monto'],$_POST['alumno'],$_POST['grupo']);
+
+
+    echo $operacion;
+    //  if(is_string($operacion)){
+    //    echo $operacion;
+    //  }else if($operacion == false){
+    //     echo "error 404, no hay servicio";
+    //  }else{
+    //     echo "tu registro  se realizo exitosamente";
+    //  }
   }else{
     echo "tu esta ropiendo el sistema, reporta este error";
   }

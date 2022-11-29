@@ -68,7 +68,7 @@ label{
     border-radius:20px;
 }
 
-body {
+.principal{
     background-image: url("../img/estudio2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
