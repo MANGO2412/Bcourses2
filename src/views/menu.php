@@ -10,7 +10,7 @@
       $row=mysqli_fetch_array($dataset);
     }
 ?>
-  <!-- menu de usuario -->
+  <!-- menu del alumno cuando se logea -->
    <header id="nav" class="menuUser">
         <!-- nombre y logo del sitio web -->
         <section class ="seccion1">
@@ -54,7 +54,7 @@
   }
 
 ?>
-   <!-- menu de usuario -->
+   <!-- menu del maestro cuando se logea -->
    <header id="nav" class="menuUser">
         <!-- nombre y logo del sitio web -->
         <section class ="seccion1">
@@ -85,7 +85,7 @@
 
   }else{
 ?>
-    <!-- menu sin login -->
+    <!-- menu  para los usuarios que no se loean -->
     <header id="nav" class="menu">
         <section class ="seccion1">
          <img class = "img00" src = "src/img/logo1.png"> 

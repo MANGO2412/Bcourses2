@@ -243,6 +243,15 @@ Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('C
 Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Curso Desarrollo Web - Aprende HTML y CSS', null, '2020-9-1', '2020-12-24', 4,4);
 Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,Curso) values('Curso Programación - Java', null, '2020-9-1', '2020-12-24', 5,5);
 
+
+
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Introducción a las finanzas', null, '2022-12-1', '2023-4-3', 1,6);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Curso online de Manejo fundamental de Adobe', null, '2022-12-1', '2023-4-3', 2,7);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Curso online de Introducción a Adobe Photoshop', null, '2022-12-1', '2023-4-3', 3,8);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Introducción a Matemáticas para Finanzas y Negocios', null, '2022-12-1', '2023-5-2', 4,9);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Curso online de Diseño de logotipos', null, '2022-12-1', '2023-4-3', 5,10);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Herramientas para el Análisis de Big Data', null, '2022-12-1', '2023-5-7', 1,11);
+Insert into grupo(nombre,horario,fecha_inicio,fecha_fin,maestro,curso) values('Ciencia de datos con Python', null, '2022-12-1', '2023-5-7', 2,12);
 ---procedure stores
 
 --info del grupo
@@ -264,6 +273,7 @@ concat (m.nombre,' ',m.ApellidoP, ' ', m.ApellidoM) as Maestro
 
 end $$
 DELIMITER;
+
 
 --info del curso
  DELIMITER $$
@@ -287,10 +297,56 @@ DELIMITER;
 
 drop procedure InfoCursosMaster;
 
+/*
+1)mostrar informacion del curso con el id del curso
+  nombre del curso
+  id del curso y del grupo
+  categoria del curso
+  nombre del maestro
+  precio del curso
+  fecha de inicio y cierre del curso
+  numero de horas
+  descripcion
+*/
+
+DELIMITER $$
+create PROCEDURE InfoCurso(
+      IN idcurso integer
+     )
+
+begin
+
+   
+select 
+   c.codigo as codigo_curso, c.nombre as nombre_curso, cat.nombre as categoria, c.no_hrs as duracion, c.descripcion as descripcion,c.imagen as foto_curso, g.codigo as  grupo, g.fecha_inicio as fechaIn, g.fecha_fin as fechaFn, g.disponibilidad as No_Estudiantes,
+   c.costo as costo,concat(m.ApellidoM,' ',m.ApellidoP,' ',m.nombre) as maestro, m.foto as foto
+from curso as c
+ inner join categoria as cat on cat.codigo=c.categoria
+ INNER JOIN grupo as g on g.curso=c.codigo
+ inner JOIN maestro as m on m.codigo=g.maestro
+ where c.codigo=idcurso;
+
+end $$
+DELIMITER; 
 
 
+
+
+
+
+--llama los triggers
 delimiter;
-call InfoGrupoProcedure();
+call InfoCurso(1);
 
 delimiter:
 call InfoCursosMaster(2);
+
+
+select 
+   c.codigo as codigo_curso, c.nombre as nombre_curso, cat.nombre as categoria, c.no_hrs as duracion, c.descripcion as descripcion,c.imagen as foto_curso, g.codigo as  grupo, g.fecha_inicio as fechaIn, g.fecha_fin as fechaFn, g.disponibilidad as No_Estudiantes,
+   c.costo as costo,concat(m.ApellidoM,' ',m.ApellidoP,' ',m.nombre) as maestro, m.foto as foto
+from curso as c
+ inner join categoria as cat on cat.codigo=c.categoria
+ INNER JOIN grupo as g on g.curso=c.codigo
+ inner JOIN maestro as m on m.codigo=g.maestro
+ where c.codigo=11;

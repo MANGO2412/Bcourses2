@@ -1,6 +1,6 @@
 @import url(colores.css);
 
-
+/* 
 *{
     box-sizing: border-box;
     margin: 0;
@@ -77,7 +77,7 @@ ul.botones li a:hover{
     width: 60%;
     height: 100vh;
 
-}
+} */
 
 #dividida{
     display: flex;

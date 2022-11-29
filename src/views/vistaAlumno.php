@@ -18,7 +18,7 @@ if($menu_accion_user=='mis_cursos'){
         $row=mysqli_fetch_assoc($dataset);
     }
    ?>
-   
+
    <img src="src/img/alumnos/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/alumnos/defaultuser.png'">
    <!-- informacion del usuario -->
    <ul>
@@ -38,7 +38,7 @@ if($menu_accion_user=='mis_cursos'){
      <input type="text" name="id"  value="<?=$row['matricula']?>">
 
      <label for="">nombre</label>
-     <input type="text" name="nombre" value="<?=$row['nombre']?>">  
+     <input type="text" name="nombre" value="<?=$row['nombre']?>">
 
      <label for="">apellido paterno</label>
      <input type="text" name="apellP" value="<?=$row['ApellidoP']?>">
@@ -59,7 +59,7 @@ if($menu_accion_user=='mis_cursos'){
      <input id="cancel" type="submit" value="cancelar">
    </form>
    </div>
-  
+
 
    <!-- certificados -->
 
@@ -72,6 +72,12 @@ if($menu_accion_user=='mis_cursos'){
 ?>
  <p><?=$menu_accion_user?></p>
 <?php
+}else if($menu_accion_user==="curso"){
+  include('src/views/curso.php');
+?>
+  <p><?=$id_curso?></p>
+
+<?php
 }else{
 ?>
   <!--opciones para buscar cursos por categoria  -->
@@ -83,7 +89,7 @@ if($menu_accion_user=='mis_cursos'){
                  $dataset2=$mycategoria->getAll();
 
                  if($dataset2){
-                    while ($row=mysqli_fetch_array($dataset2)){ 
+                    while ($row=mysqli_fetch_array($dataset2)){
                ?>
                  <button id="<?=$row['codigo']?>"class ="boton"><?=$row['nombre']?></button>
               <?php
@@ -117,21 +123,21 @@ if($menu_accion_user=='mis_cursos'){
                      <section>
                          <h2 class="titulo_curso"><?=$row['nombre']?></h2>
                          <p class="descripcion"><?=$row['descripcion']?></p>
-                         <a href="src/views/curso.php?id_curso=<?=$row['codigo']?>" class="vermas">ver mas del curso</a>
+                         <a href="home.php?id_curso=<?=$row['codigo']?>&&menu=curso" class="vermas">ver mas del curso</a>
+
+                         <!-- <a href="src/views/curso.php?id_curso=//$row['codigo']" class="vermas">ver mas del curso</a> -->
                      </section>
                   </article>
                 <?php
                      }
                    }
-        
+
                 ?>
-               
+
                </section>
            </section>
-           
+
           <!-- fin de esta seccion -->
 <?php
 }
 ?>
-<script src="src/logic/jquery-3.6.1.min.js"></script>
-<script src="src/logic/scripts/script1.js"></script>

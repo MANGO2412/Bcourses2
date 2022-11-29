@@ -146,25 +146,41 @@ function GetAllCourses($category){
 //metodo para obtener un cursos
 function getOneCourses($id){
   $mycourses= new curso();
+  $mytopics= new tema();
+
   $dataset= $mycourses->get($id);
       
   if($dataset){
-    //crea el areglo json
-   $json=array();
+    
+   //crea y agrega datos de tema a un arreglo
+     $tema=array();
+     $temas=$mytopics->getAll($id);
+    while($row=mysqli_fetch_array($temas)){
+       $tema[]=array(
+        'codigo'=>$row['codigo'],
+        'titulo'=>$row['titulo'],
+        'descripcion'=>$row['descripcion']
+       );
+     }
 
-   //obtien los datos json
-   while ($row=mysqli_fetch_array($dataset)) {
-    $json[] = array(
-       'codigo'=>$row['codigo'],
-       'nombre'=>$row['nombre'],
-       'costo'=>$row['costo'],
-       'imagen'=>$row['imagen'],
-       'hrs'=>$row['no_hrs'],
-       'descripcion'=>$row['descripcion'],
-       'categoria'=>$row['categoria']
-    );
-   }
    
+   $row=mysqli_fetch_array($dataset);
+   $json[] = array(
+    'codigo'=>$row['codigo_curso'],
+    'nombre'=>$row['nombre_curso'],
+    'descripcion'=>$row['descripcion'],
+    'categoria'=>$row['categoria'],
+    'duarcion'=>$row['duracion'],
+    'imagen'=>$row['foto_curso'],
+    'costo'=>$row['costo'],
+    'fechaIN'=>$row['fechaIn'],
+    'fechaFIN'=>$row['fechaFn'],
+    'maestro'=>$row['maestro'],
+    'imagen_maestro'=>$row['foto'],
+    'id_grupo'=>$row['grupo'],
+    'cantidad'=>$row['No_Estudiantes'],
+    'temas'=>$tema
+   );
    //retorna un valor json
    return json_encode($json);
   }else{

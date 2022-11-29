@@ -12,7 +12,7 @@ function showCourses(elementid,data){
                                <li>${curso.nombre}</li>
                                <li><img src=${curso.imagen}></li>
                                <li><p>${curso.costo}</p><li>
-                               <li><a href="src/views/curso.php?id_curso=${curso.codigo}">ver</a></li>  
+                               <li><a href="home.php?id_curso=${curso.codigo}&&menu=curso">ver</a></li>
                              </ul>
                           </article>   
                             `;      
@@ -27,6 +27,16 @@ function showOneCourse(elementid,data) {
 
     for (let i = 0; i < dataArra.length; i++) {
         let curso=dataArra[i];
+        let temaslist="";
+
+                for (let i = 0; i < curso.temas.length; i++) {
+                    const element = curso.temas[i];
+                    for (const key in element) {
+                       temaslist+=`<p>●${element[key]}</p>`
+                    }
+                    
+                }
+
        element.innerHTML +=`
        <section id="dividida">
        <div class = izqres>
@@ -43,12 +53,9 @@ function showOneCourse(elementid,data) {
                  <br>
              <p class="p5">¿Qué es lo que vas a aprender?</p>
              <br>
-             <p class="p6">
-              ● Definición de ciencia de datos y que los datos analizan <br>
-              ● Herramientas y algoritmos utilizados diariamente en este   campo<br>
-              ● Habilidades necesarias para ser un científico de datos exitoso<br>
-              ● El papel de la ciencia de datos dentro de una empresa<br>
-              ● Cómo formar un equipo exitoso de ciencia de datos</p>
+             <div class="p6">
+               ${temaslist}
+              </div>
               <br>
              
              <p class="p7">ACERCA DEL INSTRUCTOR</p>
@@ -57,8 +64,8 @@ function showOneCourse(elementid,data) {
               <img class="imgperf" src="img/david.jpeg">
               
               <br>
-              <p class="nombrexd">Allan Salazar</p>
-              <p class="area">Administrador de Empresas</p>
+              <p class="nombrexd">${curso.maestro}</p>
+              <p class="area"></p>
               <br>
               <br>
           </div>
@@ -79,9 +86,9 @@ function showOneCourse(elementid,data) {
                  <br>
               <div class="hora">
                  <span class="hora">Horarios: 7:00 - 9:00 am</span><br>
-                 <span class="hora">Personas inscritas al curso: 24/30 </span><br>
-                 <span class="hora">Fecha de inicio: 31/02/2023</span><br>
-                 <span class="hora">Fecha de fin: 31/06/2023</span><br>
+                 <span class="hora">Personas inscritas al curso: ${curso.cantidad}/30 </span><br>
+                 <span class="hora">Fecha de inicio: ${curso.fechaIN}</span><br>
+                 <span class="hora">Fecha de fin: ${curso.fechaFIN}</span><br>
               </div>   
               </div>
               
@@ -102,7 +109,6 @@ function showOneCourse(elementid,data) {
 //-----------------------------------------------------------------------------------------------------------------
 
 
-
 const virifyEL = document.querySelector('.curso')
 if(virifyEL == null){
     $(document).ready(function () {
@@ -113,8 +119,8 @@ if(virifyEL == null){
             type:'POST',
             data:{activity:'getcourses'},
             success: function (request) {
-                // console.log(request);
-                 showCourses('cursos',request);
+                //  console.log(request);
+                  showCourses('cursos',request);
             }
         });
     });   
@@ -124,11 +130,12 @@ if(virifyEL == null){
     
         //make request to get one courses
         $.ajax({
-            url:'../logic/server.php',
+            url:'src/logic/server.php',
             type:'POST',
             data:{activity:'oneGetCourse',idC:virifyEL.id},
             success: function (request) {
-                  showOneCourse(virifyEL.id,request)
+                //   console.log(request);
+                 showOneCourse(virifyEL.id,request)
             }
         });
     });    

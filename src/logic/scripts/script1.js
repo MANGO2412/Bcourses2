@@ -1,6 +1,8 @@
 // alert("hello world");
 
 
+
+
 //evento para mostra categorias
 const btnsCategory = document.querySelectorAll('.boton');
 for (let i = 0; i < btnsCategory.length; i++) {

@@ -242,7 +242,7 @@ class curso extends conexionDB{
       $con= $this->connect();
 
       if($con){
-        $sql= "select * from curso where codigo='$id'";
+        $sql= "call InfoCurso($id)";
         return $this->query($sql);
       }else{
          return false;
@@ -288,6 +288,24 @@ class categoria extends conexionDB{
   }
 }
 
+
+
+/******
+ * tema
+ ****/
+
+class tema extends conexionDB{
+  public function getAll($id_curso){
+     $con=$this->connect();
+     if($con){
+      $sql="select * from temas where curso=$id_curso";
+      return $this->query($sql);
+     }else{
+      return false;
+     }
+  }
+
+}
 
 /***
  clase grupo
