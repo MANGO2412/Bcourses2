@@ -330,40 +330,42 @@ ul.botones li a:hover{
     text-align: center;
     justify-content: center;
 }
-th, td {
+.thpagoo {
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 30px;
     padding-right: 50px;
-  }
-  th{
-    background-color: #2e4b61;
-  }
-
-  table {
-    border-spacing: 0px;
-    margin-top: 50px;
-  }
-
-table{
-    text-align: center;
-    margin: auto 10px;
-    caption-side: bottom;
-
-}
-th{
-    color: white;
-}
-
-
-td,th{
     border: 1px solid black;
     padding-left:10px;
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
 
-}
+  }
+  .tdpagoo{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 50px;
+    border: 1px solid black;
+    padding-left:10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+  .thpagoo{
+    background-color: #2e4b61;
+    color: white;
+  }
+
+  .tablapagos {
+    border-spacing: 0px;
+    margin-top: 50px;
+    text-align: center;
+    margin: auto 10px;
+    caption-side: bottom;
+  }
 .paguito{
     text-align: left;
     margin-top: 30px;
@@ -376,7 +378,6 @@ td,th{
 body{
     background-color: #ededed;
 }
-
 /* ------------------------ Este es del diseño del perfil del alumno ---------------*/
 #dividida1{
     display: flex;
@@ -676,5 +677,20 @@ a{
 .cur{
     margin: 20px 0px 20px 20px;
     font-size: 30px;
+    color: #2e4b61;
+}
+
+/* ----------------------------- lista de profesores --------------------*/
+.matricula{
+    font-weight: bolder;
+    color: #2e4b61;
+    
+}
+.alumno{
+    font-weight: bolder;
+    color: #2e4b61;
+}
+.grupo{
+    font-weight: bolder;
     color: #2e4b61;
 }

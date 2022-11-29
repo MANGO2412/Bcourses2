@@ -52,16 +52,16 @@
          <input class="controls" type="text" name="firstN"  id="nombres" maxlength="30" placeholder="Primer apellido" required>
 
 
-         <input class="controls" type="text" name="lastN" required id="nombres" maxlength="30"  placeholder="Segundo apellido">
+         <input class="controls" type="text" name="lastN" required id="nombres" maxlength="30"   placeholder="Segundo apellido">
 
-        <input  class="controls" type="text" required name="TarjetN"  maxlength="16"  id="Tarjeta" placeholder="Numero de tarjeta">
+        <input  class="controls" type="text" required name="TarjetN"  maxlength="16"  id="Tarjeta" pattern="[0-9]+" placeholder="Numero de tarjeta">
         
-        <input class= "controls" type= "text" required name="CVV" maxlength="4" id="CVV" placeholder="Codigo de seguridad">
+        <input class= "controls" type= "text" required name="CVV" maxlength="4" id="CVV" pattern="[0-9]+" placeholder="Codigo de seguridad">
      
         <article class="expiracion">
             <label>Fecha de expiracion</label>
-            <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" placeholder="MM">
-            <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" placeholder="AA"> 
+            <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" pattern="[0-9]+" placeholder="MM">
+            <input class = "controls2" type = "text" required name ="mesvenc" maxlenght="2" pattern="[0-9]+" placeholder="AA"> 
            </article>
            <input class="boton" type="submit" value="Relizar pago">
     
