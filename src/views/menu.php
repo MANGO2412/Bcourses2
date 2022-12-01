@@ -69,7 +69,7 @@
             <ul>
                 <li>
                     <ul>
-                        <li><img src="src/img/alumnos/estudent.jpeg"></li>
+                    <li><img src="src/img/maestros/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/maestros/defaultuser.png'"></li>
                         <li><?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></li>
                     </ul>
                 </li> 

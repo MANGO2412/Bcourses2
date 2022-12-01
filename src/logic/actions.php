@@ -6,27 +6,28 @@
  *********/
 
  //funcion para mover la foto de un archivo local al servidor
- function move_foto2($foto,$id){
+ function move_foto2($foto,$id,$typeuser){
   $pos=strpos($foto['imageNew']['name'],'.');
   $ext=substr($foto['imageNew']['name'],$pos, strlen($foto['imageNew']['name']));
   $nameFile=$id.$ext;
-
-  $archivo='../img/alumnos/'.$nameFile;       
+  
+  $archivo=$typeuser=="maestro"?'../img/maestros/'.$nameFile:'../img/alumnos/'.$nameFile;
+        
   move_uploaded_file($foto['imageNew']['tmp_name'],$archivo); 
   return $nameFile;
 }
 
 //funcion para actualizar la foto 
-function updatePhoto($fotoNew,$id,$fotoOld){
+function updatePhoto($fotoNew,$id,$fotoOld,$typeUser){
   echo $fotoNew['imageNew']['name'];
      
 
     if(!empty($fotoNew['imageNew']['name'])){
-
-      $verifiy=!empty($fotoOld)?unlink('../img/alumnos/'.$fotoOld):true;
+      $path=$typeUser=="maestro"?'../img/maestros/':'../img/alumnos/';
+      $verifiy=!empty($fotoOld)?unlink($path.$fotoOld):true;
       
       if($verifiy){
-        return move_foto2($fotoNew,$id);
+        return move_foto2($fotoNew,$id,$typeUser);
       }else{
         return $fotoOld;
       }
@@ -71,25 +72,36 @@ function login($username,$password,$tipUser){
         session_start();
         $_SESSION['email']=$fila['correo'];
         $_SESSION['creacion']=$fila['fecha_creacion'];
-        $_SESSION['contraseña']=$fila['contraseña'];
+        $_SESSION['contraseña']=$fila['password'];
         // $_SESSION['id']=$fila['codigo'];
         
         //valida el tipo de usuario
          if($tipUser == "alumno"){
           $_SESSION['id_alumno']=$fila['alumno'];
+          $_SESSION['email']=isset($_SESSION['id_alumno'])?$fila['correo']:false;
+  
          }else if($tipUser=="maestro"){
           $_SESSION['id_maestro']=$fila['maestro'];
+          $_SESSION['email']=isset($_SESSION['id_maestro'])?$fila['correo']:false;
          }
-         header('location: ../../index.php');
-  
+
+         if($_SESSION['email'] == false){
+          echo '<script>
+          alert("no existe el usuario '.$tipUser.'");
+          window.location.href="../../iniciarsesion.php";
+         </script>';
+         }else{
+          header('location: ../../index.php');
+         }
+           
       }else{
-        echo '<script>
-        alert("no hay un registro de tu correo y contraseña");
-        window.location.href="../../iniciarsesion.php";
+       echo '<script>
+         alert("no hay un registro de tu correo y contraseña");
+         window.location.href="../../iniciarsesion.php";
         </script>';
       }
    }else{
-    echo '<script>
+   echo '<script>
     alert("tu contraseña o correo son incorrecto,vuelve a intetarlo");
     window.location.href="../../iniciarsesion.php";
     </script>';     
@@ -140,10 +152,25 @@ function searchAllCuorses($valor){
 
 
 //function para actualizar alumno y  cuenta
- function updateStrudent($idAlum,$nombre,$apellP,$apellM,$fotonew,$fotoOld,$cel){
+ function updateStrudent($idAlum,$nombre,$apellP,$apellM,$fotonew,$fotoOld,$cel,$tipusr){
   $myStudent= new alumno();
-  $file=updatePhoto($fotonew,$idAlum,$fotoOld);
+  $file=updatePhoto($fotonew,$idAlum,$fotoOld,$tipusr);
   if($myStudent->set($idAlum,$nombre,$apellP,$apellM,$file,$cel)){
+    return true;
+  }else{
+    return false;
+  }
+
+
+}
+
+
+
+//function para actualizar Maestro
+function updateMaster($idAlum,$nombre,$apellP,$apellM,$fotonew,$fotoOld,$cel,$tipusr){
+  $myMaster= new maestro();
+  $file=updatePhoto($fotonew,$idAlum,$fotoOld,$tipusr);
+  if($myMaster->set($idAlum,$nombre,$apellP,$apellM,$file,$cel)){
     return true;
   }else{
     return false;

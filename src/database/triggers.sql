@@ -67,25 +67,6 @@ from
 
 
 
-
-
-
-/* obtiene tiene todo los datos */
-DELIMITER $$
-create PROCEDURE  infPago
- (
-      IN idAlumno integer
-)
-begin
-   select 
-    c.nombre as curso,p.monto as pago,p.fecha as fecha
-   from pago as p 
-   inner join grupo as grup on p.grupo=grup.codigo
-   inner join curso as c on grup.curso=c.codigo
-  where p.alumno=idAlumno;      
-end $$
-DELIMITER;
-
 /* obtiene los datos  del curso */
 DELIMITER $$
 create PROCEDURE  cursoiInfo

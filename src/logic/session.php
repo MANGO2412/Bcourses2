@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(isset($_SESSION['email'])){
+  if(isset($_SESSION['email']) && $_SESSION['email'] != false){
 
      if(isset($_SESSION['id_maestro'])){
        $menuMaestro = true;

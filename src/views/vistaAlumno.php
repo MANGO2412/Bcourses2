@@ -71,7 +71,7 @@ if($menu_accion_user=='mis_cursos'){
     <!-- info del usuario -->
    <section id="dividida1">
     <div class = izq1>
-        <div class="tarjetalum"><img class="imgalum" src="src/img/alumnos/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/alumnos/defaultuser.png'">
+        <div class="tarjetalum"><img class="imgalum" src="src/img/maestros/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/maestros/defaultuser.png'">
         <p class="Nomb1"><?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></p>
         <!-- <p class="Nomb1">Maestro</p> -->
     </div>
@@ -105,7 +105,7 @@ if($menu_accion_user=='mis_cursos'){
               <li class="xdd"> <a href="xd"> Programacion Orientada a objetos</a></li>
             </ul>
         </div>
-  </div
+  </div>
 
 
 
@@ -113,7 +113,7 @@ if($menu_accion_user=='mis_cursos'){
 
    <!-- formualrio escondido -->
    <div class="ventana" id="formdata">
-   <form  action="src/logic/server.php?activity=updateStudent" method="post" enctype="multipart/form-data">
+   <form  action="src/logic/server.php?activity=updateStudent&&tipuser=alumno" method="post" enctype="multipart/form-data">
      <h1>cambiar informacion de la cuenta</h1>
      <!-- id del alumno -->
      <input type="text" name="id"  value="<?=$row['matricula']?>">

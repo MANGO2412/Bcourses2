@@ -22,6 +22,7 @@
         }
 
   }else if($_REQUEST["activity"]=="login"){
+    echo $_POST['passw'];
      login($_POST['email'],$_POST['passw'],$_POST['tipUser']);
      
   }else if($_REQUEST['activity']=="logout"){
@@ -31,9 +32,13 @@
     echo searchAllCuorses($_REQUEST["namecurso"]);
 
   }else if($_REQUEST["activity"]=="updateStudent"){
-     $result=updateStrudent($_POST['id'],$_POST['nombre'],$_POST['apellP'],$_POST['apellM'],$_FILES,$_POST['imageOld'],$_POST['cel']);
+     $result=updateStrudent($_POST['id'],$_POST['nombre'],$_POST['apellP'],$_POST['apellM'],$_FILES,$_POST['imageOld'],$_POST['cel'],$_REQUEST['tip']);
       header('location: ../../home.php?menu=configurar');
 
+  }else if($_REQUEST["activity"]=="updateMaster"){
+
+     $result=updateMaster($_POST['id'],$_POST['nombre'],$_POST['apellP'],$_POST['apellM'],$_FILES,$_POST['imageOld'],$_POST['cel'],$_REQUEST['tip']);
+     header('location: ../../home.php?menu=configurar');
   }else if($_REQUEST["activity"]=="pago"){
     $operacion=pagoRegistro($_POST['monto'],$_POST['alumno'],$_POST['grupo']);
    

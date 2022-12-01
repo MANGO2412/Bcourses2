@@ -44,7 +44,7 @@
              <p class="p7">ACERCA DEL INSTRUCTOR</p>
              <div class="perfil">
               <br>
-              <img class="imgperf" src="src/img/alumnos/defaultuser.png">
+              <img class="imgperf"  src="src/img/maestros/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/maestros/defaultuser.png'">
               
               <br>
               <p class="nombrexd"><?=$row['maestro']?></p>
