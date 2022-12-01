@@ -6,6 +6,9 @@
     header('location: home.php?menu=c_asignado');
    }
 
+ 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +35,11 @@
       </nav>
    </header> 
    <!-- contenido de la pagina -->
-   <section id="dividida">
+   <section id="dividida" >
        <div class = izq>
+        <br>
+        <br>
+        <br>
            <h2>Estudia cuando quieras y  donde quieras</h2> 
            <p class="p1">¡ Elige la hora y el momento que quieras, para tomar tus cursos en linea !</p>
            <p class="p2">Somos una empresa que se encarga de poder brindar a las personas un sitio para poder llevar acabo sus cursos de manera online</p>    
@@ -42,13 +48,31 @@
      </div>
      <div class = der></div>
    </section>
+   <br>
+   <br>
    <section class="frase">
        <div>
-       <p class="hola">Explora nuestros cursos mas interesantes </p>
+       <p font-weight="bolder" class="hola">Explora nuestros cursos mas interesantes </p>
        </div>
    </section>
+   <br>
     <!-- cursos -->
-    <section id="cursos"></section>
+    <section  class="cursos">
+    <p  font-size="18px" class="hola">Somos una empresa que consiste en crear cursos en línea para las personas que no cuentan con tiempo para poder tomar de manera presencial sus clases, nos encargamos de que puedan tener un excelente entendimiento de los temas de los cursos y un aprendizaje de la mejor calidad.</p>
+    <br><br>
+    <center><img src="src/img/img.jpeg" alt=""></center>
+    <br>
+    <br>
+    <br>
+
+  </section>
+    <br><br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
      <footer class="pie_pagina">
 

@@ -22,7 +22,7 @@
                <p class="p4"><?=$row['descripcion']?></p>
             </div>
             <div class = derres>
-             <img class="imgxd" src="css/mcf.png">
+             <img class="imgxd" src="src/img/cursos/<?=$row['imagen_c']?>">
             </div>
         </section>
           <section id="dividida">
@@ -44,7 +44,7 @@
              <p class="p7">ACERCA DEL INSTRUCTOR</p>
              <div class="perfil">
               <br>
-              <img class="imgperf" src="img/david.jpeg">
+              <img class="imgperf" src="src/img/alumnos/defaultuser.png">
               
               <br>
               <p class="nombrexd"><?=$row['maestro']?></p>
@@ -80,7 +80,7 @@
 </div>
 <script>
     function message(){
-        alert("inicia sesion para poder registrarte");
+        alert("inicia sesion para poder adquirir el curso");
     }
 </script>
 <?php

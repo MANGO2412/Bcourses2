@@ -242,13 +242,15 @@ ul.botones li a:hover{
 }
 
 /* -------------------------------- */
-
+.somo{
+    margin: 30px;
+}
 
 
 /* diseño de los cursos */
-.view_c{
-    
-}
+/* .view_c{
+    font
+} */
 .cursos{
     display: flex;
     border-radius: 10px;
@@ -268,6 +270,7 @@ ul.botones li a:hover{
 
 .cursos section{
     padding: 20px;
+
 
 }
 
@@ -693,4 +696,240 @@ a{
 .grupo{
     font-weight: bolder;
     color: #2e4b61;
+}
+
+
+/* muestra de las listas */
+#list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 20px;
+  padding: 20px;
+}
+
+#list article{
+    margin: 10px;
+}
+#list article p{
+    text-align:  left;
+    padding-bottom: 10px;
+}
+
+
+
+/*  */
+.p1{
+    color:  white;
+    font-size: 21px;
+    text-align: center;
+    margin: 110px 30px 30px 20px;
+    font-weight:bold;
+}
+
+.p2{
+        color:  white;
+        font-size: 20px;
+        text-align: center;
+        margin:-20px 30px 70px 20px;
+        font-weight:bold;
+}
+
+
+/* a{
+    background-color: white;
+    color: black;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: bolder;
+    font-size: 15px;
+    margin: 8px 10px 0px 10px;
+    border: 0px solid;
+    font-size: 12.5px;
+    height: 60px;
+} */
+
+.hola{
+    padding: 30px 30px 30px 30px;
+}
+
+.frase{
+    background-color: #F6F5F5;
+    text-align: center;
+}
+.frase .hola{
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style:normal;
+    font-size: 40px;
+}
+
+.izqres{
+    background-color: #2e4b61;
+    height: auto;
+    width: 52.5%;
+    text-align: center;
+}
+
+.derres{
+    background: #2e4b61;
+    background-size: cover;
+    background-position: center;
+    width: 47.5%;
+    height: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.p3{
+    color: white;
+    font-size: 32.4px;
+    text-align: center;
+}
+.p4{
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+    margin: 30px;
+}
+.imgxd{
+    text-align: center;
+    border: 3px;
+    width: 650px;
+    height: 250px;
+    border: 10px solid;
+    border-color: white;
+}
+
+.izqapren{
+    height: auto;
+    width: 50%;
+    text-align: left;
+}
+
+.derapren{
+    justify-content: center;
+    height: auto;
+    width: 50%;
+    text-align: center;
+}
+.p5{
+    color: black;
+    font-size: 28px;
+    text-align: center;
+    margin: -10px 0px 0px -0px;
+    font-weight: bolder;
+    font-size: 28px;
+}
+.p6{
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    margin: -10px 0px 20px 20px; 
+}
+.p7{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin: -10px 0px 10px 5px; 
+    font-weight: bolder;
+    font-size: 25px;
+}
+.perfil{
+    text-align: center;
+    background-color: #2e4b61;
+    width: 300px;
+    height: 200px;
+    margin: 0px 20px 0px 330px;
+    border: 1px;
+}
+.imgperf{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+.nombrexd{
+    color: white;
+    margin: 10px 0px 0px 0px;
+}
+.area{
+    color: white;
+}
+.precio{
+    border-color: black;
+    border-width: 2px;
+    border-style:ridge;
+    text-align: center;
+    width: 500px;
+    margin: 0px 20px 0px 250px;
+}
+
+
+
+ul.botonesxd{
+    margin:5px;
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 65px;
+    height: 65px;
+}
+ul.botonesxd li{
+    display:block;
+    float: center;
+    height: 60px;
+    text-align: center;
+}
+
+ul.botonesxd li a{
+    text-align: center;
+	background-color: #2e4b61;
+	border-radius:30px;
+    color: white;
+    
+    height: 100px;
+	
+}
+
+ul.botonesxd li a:hover{
+	background-color: #2a3744;
+	border: 1px double var(--cum);
+	color: #ffffff;
+} 
+.prec{
+    font-size: 35px;
+}
+
+.hora{
+    font-size: 25px;
+    text-align: center;
+    margin: 0px 20px 0px 50px;
+}
+
+.navegacion{
+	margin: 0px 20px 0px -100px;
+	background: #fff;
+}
+
+.navegacion ul{
+	list-style: none;
+}
+
+.botonessesion > li{
+	position: relative;
+	display: inline-block;
+}
+
+.botonessesion > li > a{
+	display: block;
+	color: #353535;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.botonessesion li a:hover{
+	color: #CE7D35;
+	transition: all .3s;
 }

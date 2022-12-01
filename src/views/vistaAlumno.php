@@ -2,9 +2,48 @@
 
 
 if($menu_accion_user=='mis_cursos'){
-?>
-<p><?=$menu_accion_user?></p>
+  $mycurso= new grupo();
+  $result=$mycurso->getAll($_SESSION['id_alumno']);
+  
+  if($result){
+
+  ?>
+
+ <div class="cuerpo">
+
 <?php
+    while ($row=mysqli_fetch_assoc($result)) {
+?>
+   <div class="tarjeta">
+   			<!-- primera modificacion ques es el de la imgen junto con los nombres de los curos y el nombre de la zorra del profesor que ese va a ser el mismo xd junto con la -->
+   			<div class="cabecera" style="background: url(IMAGEN DEL CURSO QUE SE IMPARTE);background-repeat: no-repeat;-webkit-background-size: cover;background-size: cover;">
+   				<a class="parte1" href="">
+   				<div class="titulo"><?=$row['curso']?></div>				
+   				</a>
+   				<div class="nombre"><?=$row['maestro']?> </div>
+   			</div>
+   
+   			<div class="medio">				
+   				<div class="texto">
+   					<img class="foto" src="imagenes/user1.jpg" alt="">
+   					<h2>Informacion del curso</h2>
+   					<div class="tareas">
+   						<a class="link" href=""><?=$row['descripcion']?> </a>
+   					</div>
+   				</div>
+   			</div>
+   
+   			<div class="pie">				
+   				<span class="icon2"><i class="far fa-folder fa-lg"></i></span>
+   			</div>
+   
+   </div>
+   <?php
+       }
+    ?>
+</div>
+<?php
+  }
 }else if($menu_accion_user=='configurar'){
 ?>
 <p><?=$menu_accion_user?></p>
@@ -18,16 +57,58 @@ if($menu_accion_user=='mis_cursos'){
         $row=mysqli_fetch_assoc($dataset);
     }
    ?>
-
+<!-- 
    <img src="src/img/alumnos/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/alumnos/defaultuser.png'">
-   <!-- informacion del usuario -->
+     informacion del usuario 
    <ul>
     <li>Nombre:<?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></li>
     <li>Correo:<?=$_SESSION['email']?></li>
     <li>Numero de telefono:<?=$row['n_celular']?></li>
     <li>fecha de registro:<?=$_SESSION['creacion']?></li>
    </ul>
-   <button id="edit">cambiar cuenta</button>
+   <button id="edit">cambiar cuenta</button> -->
+
+    <!-- info del usuario -->
+   <section id="dividida1">
+    <div class = izq1>
+        <div class="tarjetalum"><img class="imgalum" src="src/img/alumnos/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/alumnos/defaultuser.png'">
+        <p class="Nomb1"><?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></p>
+        <!-- <p class="Nomb1">Maestro</p> -->
+    </div>
+  </div>
+  <div class = der1>
+    <div class="infousu">
+        <ul class="botonesa">
+        <p2 class="infous">Informacion del Usuario</p2>
+        <li><button class="botoninfo" id="edit">cambiar cuenta</button></li>
+        <!-- <li><a class="botoninfo" href="....">Cambiar Informacion</a></li>
+
+        </ul> -->
+    </div>
+    <div class="infodelusu">
+    <ul>
+        <br>
+        <li class="info">Nombre:<?=$row['nombre']?></li>
+        <br>
+        <li class="info">Apellido:<?=$row['ApellidoP'].' '.$row['ApellidoM']?> </li>
+        <br>
+        <li class="info">Numero Telefonico:<?=$row['n_celular']?></li>
+        <br>
+        <li class="info">Correo Electronico:<?=$_SESSION['email']?></li>
+        
+    </ul>
+    </div>
+        <br>
+        <p2 class="infous">certificados</p2>
+        <div class="certificado">
+            <ul class="botonesalu">
+              <li class="xdd"> <a href="xd"> Programacion Orientada a objetos</a></li>
+            </ul>
+        </div>
+  </div
+
+
+
 
 
    <!-- formualrio escondido -->
@@ -69,8 +150,36 @@ if($menu_accion_user=='mis_cursos'){
 
 <?php
 }else if($menu_accion_user==="mi_pago"){
+
+  $mypago=new pago();
+
+  $result=$mypago->getAll($_SESSION['id_alumno']);
+
 ?>
- <p><?=$menu_accion_user?></p>
+     <div class="pagos">
+            <p class="paguito">Pagos realizados</p>
+            <table border="1px" style="margin: 0 auto;">
+                <tr>
+                <th>Nombre del curso </th>
+                <th>Fecha de Pago</th>
+                <th>Monto</th>
+                </tr>
+                <?php
+                if($result){
+                   while ($row=mysqli_fetch_assoc($result)) {
+                      echo "
+                      <tr>
+                         <td>".$row['curso']."</td>
+                         <td>".$row['fecha']."</td>
+                         <td>".$row['pago']."</td>
+                      </tr>      
+                      ";
+                   }
+                 }
+                ?>
+                
+            </table>
+    </div>
 <?php
 }else if($menu_accion_user==="curso"){
   include('src/views/curso.php');
@@ -93,11 +202,11 @@ if($menu_accion_user=='mis_cursos'){
            <input class="controls" type="text" name="firstN"  id="nombres" maxlength="30" placeholder="Primer apellido" required>
   
   
-           <input class="controls" type="text" name="lastN" required id="nombres" maxlength="30"   placeholder="Segundo apellido">
+           <input class="controls" type="text" name="lastN" required id="nombres" maxlength="30"   placeholder="Segundo apellido" required>
   
-          <input  class="controls" type="text" required name="TarjetN"  maxlength="16"  id="Tarjeta" pattern="[0-9]+" placeholder="Numero de tarjeta">
+          <input  class="controls" type="text" required name="TarjetN"  maxlength="16"  id="Tarjeta" pattern="[0-9]+" placeholder="Numero de tarjeta"required>
           
-          <input class= "controls" type= "text" required name="CVV" maxlength="4" id="CVV" pattern="[0-9]+" placeholder="Codigo de seguridad">
+          <input class= "controls" type= "text" required name="CVV" maxlength="4" id="CVV" pattern="[0-9]+" placeholder="Codigo de seguridad" required>
            
           <input type="text" hidden name="alumno" value="<?=$_SESSION['id_alumno']?>">
           <input type="text" hidden name="grupo" value="<?=$_REQUEST['id_grupo']?>" >
@@ -155,7 +264,7 @@ if($menu_accion_user=='mis_cursos'){
                 ?>
                   <article class="cursos">
                      <!-- imagen del cursos -->
-                    <img src="img/"  alt="img not found" onerror="this.src='src/img/cursos/default.png'">
+                    <img src="src/img/cursos/<?=$row['imagen']?>"  alt="img not found" onerror="this.src='src/img/cursos/default.png'">
                      <!-- info del cursos -->
                      <section>
                          <h2 class="titulo_curso"><?=$row['nombre']?></h2>

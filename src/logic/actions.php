@@ -83,17 +83,17 @@ function login($username,$password,$tipUser){
          header('location: ../../index.php');
   
       }else{
-           echo "<script>
-               alert('no1 existe el usuario, comprueba si  estan correcta el corre y pasword');
-               window.location.href='../../iniciarsesion.php'
-             </script>";
+        echo '<script>
+        alert("no hay un registro de tu correo y contraseña");
+        window.location.href="../../iniciarsesion.php";
+        </script>';
       }
    }else{
-        echo "<script>
-        alert('no existe el usuario, comprueba si  estan correcta el corre y pasword');
-        window.location.href='../../iniciarsesion.php'
-       </script>";
-   }
+    echo '<script>
+    alert("tu contraseña o correo son incorrecto,vuelve a intetarlo");
+    window.location.href="../../iniciarsesion.php";
+    </script>';     
+  }
 
      
  }

@@ -10,7 +10,9 @@ $id_curso=isset($_REQUEST['id_curso'])?$_REQUEST['id_curso']:'no existe';
      <!-- <link rel="stylesheet" href="trash/EstilosCategoria.css" type="text/css"/> -->
      <!-- <link rel="stylesheet" href="src/styles/principal.css"> -->
      <link rel="stylesheet" href="src/styles/home.css">
+     <!-- < <link rel="stylesheet" href="src/styles/estilosmenu.css">  -->
      <link rel="stylesheet" href="src/styles/estiloscursopago.css">
+     <link rel="stylesheet" href="../src/styles/principal.css">
      <title><?=$menu_accion_user?></title> 
     </head>
     <body <?=$fondo_pago?>>

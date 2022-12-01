@@ -161,9 +161,20 @@ a{
 }
 
 
+.cursos{
+    height: 100px;
+}
+
+
+
+
+footer{
+    background-color:  #2a3744;
+    color: white;
+}
+
 #cursos{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+   margin-top: 20px;
 }
 
 

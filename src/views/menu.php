@@ -32,7 +32,7 @@
             <ul>
                 <li>
                     <ul>
-                        <li><img src="src/img/alumnos/<?=$row['foto']?>"></li>
+                        <li><img src="src/img/alumnos/<?=$row['foto']?>"  alt="img not found" onerror="this.src='src/img/alumnos/defaultuser.png'"></li>
                         <li><?=$row['ApellidoP'].' '.$row['ApellidoM'].' '.$row['nombre']?></li>
                     </ul>
                 </li> 

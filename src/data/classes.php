@@ -311,8 +311,15 @@ class tema extends conexionDB{
  clase grupo
  ****/
 class grupo extends conexionDB{
-   public function getAll(){
+   public function getAll($iduser){
+      $con=$this->connect();
 
+      if($con){
+        $sql="call cursoiInfo($iduser)";
+        return $this->query($sql);
+      }else{
+        return false;
+      }
    }
 
    public function get(){
@@ -337,27 +344,42 @@ class pago extends conexionDB{
       $mens=true;
 
       try {
-        echo $sql;
+
         $newid = $this->insert($sql);
       } catch (Exception $e) {
-        $mens= $e->getMessage();
-        $newid=0;
+        $newid= $e->getMessage();
+       
       }  
     
-      if($newid > 0 && $mens == true){
+      if($newid>0){
         echo $sql2;
         return $this->insert($sql2);
       }else{
-        echo $mens;
-        return "".$mens;
+        return $newid;
       }
       
     }else{
       return false;
     }
   }
+
   
+  public function getAll($idUser){
+    $con=$this->connect();
+    if($con){
+       $sql="call infPago($idUser)";
+       return $this->query($sql);
+    }else{
+        return false;
+    }
+  }
+
+
+
 }
+
+
+
 
 
 

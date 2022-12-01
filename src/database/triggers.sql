@@ -15,7 +15,7 @@
    from grupo where codigo= new.grupo;
 
    select alumno into existalumno 
-   from alumno_grupo where grupo=new.grupo;
+   from alumno_grupo where grupo=new.grupo and  alumno=new.alumno;
 
    select fecha_inicio into fecha_in 
    from grupo where  codigo=new.grupo;
@@ -48,6 +48,10 @@
 delimiter;
 
 
+drop trigger  verifyIns;
+
+
+
 insert into pago(monto,fecha,alumno,grupo) values(850,now(),1,1);
 
 
@@ -58,70 +62,87 @@ insert into alumno_grupo(alumno,grupo) values(1,3);
 drop trigger verifyIns;
 
 
+select 
+from 
 
 
+
+
+
+
+/* obtiene tiene todo los datos */
 DELIMITER $$
-create PROCEDURE PagoPROCEDUR
-E (
-      IN idGrupo integer,
+create PROCEDURE  infPago
+ (
       IN idAlumno integer
 )
-
 begin
-      Declare cantDisponible integer;
-      Declare NombreCurso char (100);
-      Declare msg varchar (255);
-      Declare import integer;
-      Declare cantDisponible2 integer;
-      Declare existalumno integer;
-
-Select disponibilidad into CantDisponible
-from grupo where codigo=idGrupo;
-
-
-select c.nombre into NombreCurso
-from curso as c
-where c.codigo=any(select g.codigo 
-                  from grupo as g
-                  inner join pago as p on p.grupo=g.codigo
-                  where p.grupo=idGrupo);
-
-
-select c.costo into import
-from curso as c
-where c.codigo=any(select g.codigo 
-                  from grupo as g
-                  inner join pago as p on p.grupo=g.codigo
-                  where p.grupo=idGrupo); 
-
-select alumno into existalumno 
-   from alumno_grupo where grupo=idGrupo;
-
-if(cantDisponible >30)
-then
-set msg=concat('No hay espacios suficiente para el curso', NombreCurso);
-signal sqlstate '45000' set message_text =msg;
-else
- if(existalumno=idAlumno)
-   then
-     set msg=concat('no puedes pagar all curso ', NombreCurso,'por ya esta inscrito');
-     signal sqlstate '45000' set message_text =msg;
-   else
-   set CantDisponible2= cantDisponible+1;
-
-    update grupo set disponibilidad= cantDisponible2 where
-   codigo=idGrupo;
-
-    insert into pago( alumno,grupo,monto) values(idAlumno,idGrupo, import);
-    insert into alumno_grupo(alumno,grupo) values (idAlumno,idGrupo);
-  end if;
-
-end if;
+   select 
+    c.nombre as curso,p.monto as pago,p.fecha as fecha
+   from pago as p 
+   inner join grupo as grup on p.grupo=grup.codigo
+   inner join curso as c on grup.curso=c.codigo
+  where p.alumno=idAlumno;      
 end $$
 DELIMITER;
+
+/* obtiene los datos  del curso */
+DELIMITER $$
+create PROCEDURE  cursoiInfo
+ (
+      IN idAlumno integer
+)
+begin
+  
+    select 
+      c.codigo as id,c.nombre as curso, c.descripcion as descripcion,
+      concat(m.ApellidoP,m.ApellidoM,m.nombre) as maestro,
+      m.foto as foto
+    from alumno_grupo as lg
+    inner join grupo as g on lg.grupo = g.codigo
+    inner join curso as c on g.curso=c.codigo
+    inner join maestro as m on g.maestro =m.codigo
+    where  lg.alumno = idAlumno;
+      
+end $$
+DELIMITER;
+
+
 
 delimiter
 call  PagoPROCEDURE(1,1);
 
+delimiter;
+call infPago(1);
 
 drop procedure PagoPROCEDURE;
+
+
+
+
+---triger para no inserta email
+ delimiter $$
+ create  trigger  verifyEmail
+ before insert on correo
+ for each row 
+ begin
+       declare  msg varchar(255);
+       declare  email varchar(64);
+
+
+
+       select correo into email from cuenta where  correo=new.correo;
+
+       if(email=0)
+         then
+           set msg ='ya existe el correo hay espacios';
+            signal sqlstate '45000' set  message_text=msg;
+       end if;
+
+ end$$
+delimiter;
+
+
+drop trigger verifyEmail
+
+

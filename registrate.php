@@ -19,7 +19,10 @@
       <!-- logo de la imagen -->
       <img class="img00" src="src/img/imgPage/logo1.png" alt="logo de la pagina">
       <!-- si el usuario tiene cuenta -->
+      <aside class="Cuenta">
       <p>¿ya tienes cuenta? <a href="iniciarsesion.php">inicia sesion</a></p> 
+      </aside>
+    
      </header>
         <form class="form-register" action="src/logic/server.php?activity=register" method="post"  enctype="multipart/form-data">
            <h4 class="Titulo_registro">Regístrate y comienza a aprender</h4>
@@ -36,9 +39,9 @@
               <!-- seleccionar la imagen -->
              <input type="file" name="txtFile" value="selecciona un archivo">
 
-           <input  class="controls" type="password" required name="passw" minlenght="8"  maxlength="256"  pattern="[0-9]+" pattern="[a-zA-Z]+"  id="contraseña" placeholder="Contraseña">
+           <input  class="controls" type="password" required name="passw" minlenght="8"  maxlength="256"   id="contraseña" placeholder="Contraseña">
            
-            <input   class="controls" type="password" required  minlenght="8" maxlength="256" pattern="[0-9]+" pattern="[a-zA-Z]+"  id="contraseña" placeholder="Vuelva a introducir su contraseña">
+            <!-- <input   class="controls" type="password" required  minlenght="8" maxlength="256"   id="contraseña" placeholder="Vuelva a introducir su contraseña"> -->
            
             <input class="boton" type="submit" value="Registrate">
         </form>

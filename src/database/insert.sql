@@ -4,6 +4,9 @@
 insert into alumno(nombre,apellidoP,apellidoM,foto,N_celular,correo) values('manuel','gomez','perez',' ','6641644270','manuelgom3z22052003@gmail.com');
 insert into cuenta(usuario,contraseña,alumno) values('mango','lalalslsl',1);
 
+insert into alumno(nombre,ApellidoP,ApellidoM,foto,n_celular) values("Manuel","GOmez","Perez","","6641234567")
+insert into cuenta(correo,contraseña,fecha_creacion,alumno) values("Manuel@gmail.com","12345678","2022-11-21",1)
+
 
 
 insert into maestro(nombre,apellidoP,apellidoM,foto,N_celular) values('Angel','Lopez','Breton',' ','6641644270');

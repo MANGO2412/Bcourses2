@@ -65,6 +65,7 @@ $(document).ready(function (){
                                   <article>
                                      <p>${element.nombre}</p>
                                      <p>${element.descripcion}</p>
+                                     <a href="home.php?id_curso=${element.codigo}&&menu=curso">ver mas del curso</a>
                                   </article>
                                 `;  
                  }

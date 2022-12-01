@@ -27,17 +27,19 @@
         <!-- correo del usuario -->
        <input class="controls2"  type="text" name="email" required     placeholder="correo">
        <!-- tipo de usuario -->    
-      <select class="controls2" name="tipUser">
+      <select id="users" class="controls2" name="tipUser">
          <option value=null>¿como quieres iniciar sesion?</option>
          <option value="maestro">Iniciar como maestro</option>
          <option value="alumno">Iniciar como Alumno</option>
       </select>
       
        <!-- contraseña del usario -->
-       <input class="controls2" type="password" minlenght="8" name="passw" maxlength="256"   required placeholder="contraseña">
+       <input class="controls2" type="password" name="passw" required placeholder="contraseña">
 
        <!-- iniciar sesion -->
-       <input class="btn_sesion" type="submit" value="Iniciar">
+       <input id="log" class="btn_sesion" type="submit" value="Iniciar">
     </form>
+
+    <script src="src/logic/scripts/main.js"></script>
 </body>
 </html>
